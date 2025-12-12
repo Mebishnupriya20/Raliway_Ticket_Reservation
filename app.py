@@ -17,5 +17,5 @@ def run_server():
         server.server_close()
         print("Server stopped.")
 
-        if __name__ == "__main__":
+if __name__ == "__main__":
             run_server()
