@@ -1,38 +1,59 @@
-##################### API Observation Via Codespace URL
-##################### API Observation Via Hopscotch
-##################### API Observation Via CURL
+############################################
+# Railway Ticket Reservation – API Observation
+############################################
 
 # A. Get All Trains
-curl -X GET "https://vigilant-space-winner-r4q7xx6p7v5rcp94r-8000.app.github.dev/api/students"
+curl -X GET "https://probable-space-barnacle-69qvpp54vx5g2rwpg-8000.app.github.dev/api/trains"
 
-# B. Get One Student
-curl -X GET "http://localhost:8000/api/students/1"
+# ------------------------------------------
 
-# C. Create Student
-curl -X POST "https://vigilant-space-winner-r4q7xx6p7v5rcp94r-8000.app.github.dev/api/students" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Alice Johnson",
-    "email": "alice@example.com",
-    "course": "Computer Science",
-    "year": 2
-  }'
+# B. Get One Train
+curl -X GET "http://localhost:8000/api/trains/1"
 
-# D. Update Student
-curl -X PUT "https://vigilant-space-winner-r4q7xx6p7v5rcp94r-8000.app.github.dev/api/students/2" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Alice Updated",
-    "email": "alice_new@example.com",
-    "course": "Data Science",
-    "year": 3
-  }'
+# -------CREATE TRAIN-----------------------------------
+curl -X POST "https://probable-space-barnacle-69qvpp54vx5g2rwpg-8000.app.github.dev/api/trains" \
+-H "Content-Type: application/json" \
+-d '{
+  "train_name": "Rajdhani Express",
+  "source": "Delhi",
+  "destination": "Mumbai",
+  "departure_time": "18:30",
+  "arrival_time": "08:15"
+}'
 
-E. Delete Student
-curl -X DELETE "https://vigilant-space-winner-r4q7xx6p7v5rcp94r-8000.app.github.dev/api/students/2"
+# C. Get All Bookings
+curl -X GET "http://localhost:8000/api/bookings"
 
+# ------------------------------------------
 
-##################### DB Observation Via SQLite Web
-# - install https://github.com/coleifer/sqlite-web
-# - pip install sqlite-web
-# - sqlite_web students.db
+# D. Get One Booking
+curl -X GET "http://localhost:8000/api/bookings/1"
+
+# ------------------------------------------
+
+# E. Create Booking
+curl -X POST "http://localhost:8000/api/bookings/create" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "train_id=1" \
+-d "passenger_name=Alice Johnson" \
+-d "age=25" \
+-d "seat_no=12"
+
+# ------------------------------------------
+
+# F. Update Booking
+curl -X PUT "http://localhost:8000/api/bookings/1/update" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "passenger_name=Alice Updated" \
+-d "age=26" \
+-d "seat_no=15"
+
+# ------------------------------------------
+
+# G. Delete Booking
+curl -X DELETE "http://localhost:8000/api/bookings/1/delete"
+
+# ------------------------------------------
+
+# H. Get All Staff
+curl -X GET "http://localhost:8000/api/staff"
