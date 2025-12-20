@@ -65,14 +65,14 @@ curl -X POST "https://probable-space-barnacle-69qvpp54vx5g2rwpg-8000.app.github.
 # ------------------------------------------
 
 # F. Update Booking
-curl -X PUT "https://probable-space-barnacle-69qvpp54vx5g2rwpg-8000.app.github.dev/api/bookings/1" \
+curl -X PUT "https://probable-space-barnacle-69qvpp54vx5g2rwpg-8000.app.github.dev/api/bookings/2" \
   -H "Content-Type: application/json" \
-  -d '{
-    "train_id": 2,
-    "passenger_name": "John Doe Updated",
-    "seat_number": "B12",
-    "booking_date": "2025-01-15"
-  }'
+    -d '{
+        "train_id": 2,
+            "passenger_name": "alisha Updated",
+                "seat_number": "B12",
+                    "booking_date": "2025-01-15"
+                      }'
 
 
 # ------------------------------------------

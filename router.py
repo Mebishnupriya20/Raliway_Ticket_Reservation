@@ -32,25 +32,25 @@ from core.static import serve_static
 from core.responses import send_404
 from core.middleware import add_cors_headers
 
-# FRONTEND_ROUTES = {"/", "/home", "/trains", "/bookings", "/staff", "/docs"}
+FRONTEND_ROUTES = {"/", "/home", "/trains", "/bookings", "/staff", "/docs"}
 
-# def handle_ui_routes(handler, path):
-#     # Catch-all frontend routes
-#     if path in FRONTEND_ROUTES:
-#         serve_static(handler, "frontend/pages/index.html")
-#         return True
+def handle_ui_routes(handler, path):
+    # Catch-all frontend routes
+    if path in FRONTEND_ROUTES:
+        serve_static(handler, "frontend/pages/index.html")
+        return True
     
-#     if path.endswith(".html"):
-#         stripped = path.replace(".html", "")
-#         if stripped in FRONTEND_ROUTES:
-#             serve_static(handler, "frontend/pages/index.html")
-#             return True
+    if path.endswith(".html"):
+        stripped = path.replace(".html", "")
+        if stripped in FRONTEND_ROUTES:
+            serve_static(handler, "frontend/pages/index.html")
+            return True
     
-#     if path.startswith("/frontend/"):
-#         serve_static(handler, path.lstrip("/"))
-#         return True
+    if path.startswith("/frontend/"):
+        serve_static(handler, path.lstrip("/"))
+        return True
     
-#     return False
+    return False
 
 class RailwayRouter(BaseHTTPRequestHandler):
     
@@ -64,8 +64,8 @@ class RailwayRouter(BaseHTTPRequestHandler):
     def do_GET(self):
         path = urlparse(self.path).path
         # UI Routes
-        # if handle_ui_routes(self, path):
-        #     return
+        if handle_ui_routes(self, path):
+            return
         
         
         # API: List trains
