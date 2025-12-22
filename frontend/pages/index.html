@@ -30,8 +30,8 @@
     <div id="footer"></div>
 
     <script type="module">
-       // import { loadComponent } from "/frontend/assets/js/utils/loadComponent.js";
-        //import { initRouterEvents, router } from "/frontend/assets/js/router/viewRouter.js";
+       import { loadComponent } from "/frontend/assets/js/utils/loadComponent.js";
+        import { initRouterEvents, router } from "/frontend/assets/js/router/viewRouter.js";
 
         // Load header/footer templates
         loadComponent("#header", "/frontend/assets/js/components/Header.html");
@@ -40,6 +40,8 @@
         initRouterEvents();
         router();
     </script>
+
+    <h1>hello</h1>
     
 </body>
 </html>

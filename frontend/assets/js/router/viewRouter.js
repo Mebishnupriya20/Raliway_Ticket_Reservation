@@ -1,6 +1,6 @@
 import { initTrainsController } from "../controllers/trainsController.js";
-import { initBookingsController } from "../controllers/bookingsController.js";
-import { initStaffController } from "../controllers/staffController.js";
+// import { initBookingsController } from "../controllers/bookingsController.js";
+// import { initStaffController } from "../controllers/staffController.js";
 
 // LOAD A VIEW INTO TO LOAD #APP CONTRAINER
 async function loadView(path) {
@@ -21,20 +21,20 @@ export async function router() {
         initTrainsController();
     }
 
-    else if (path === "/bookings") {
-        await loadView("/frontend/pages/bookings.html");
-        initBookingsController();
-    }
+    // else if (path === "/bookings") {
+    //     await loadView("/frontend/pages/bookings.html");
+    //     initBookingsController();
+    // }
 
-    else if (path === "/staff") {
-        await loadView("/frontend/pages/staff.html");
-        initStaffController();
+    // else if (path === "/staff") {
+    //     await loadView("/frontend/pages/staff.html");
+    //     initStaffController();
 
-    }
+    // }
 
-    else {
-        await loadView("/frontend/pages/404.html");
-    }
+    // else {
+    //     await loadView("/frontend/pages/404.html");
+    // }
 }
 
 export function initRouterEvents() {

@@ -1,6 +1,6 @@
-import { editTrain } from "../controllers/trains.js";
+
 import { $ } from "../utils/dom.js";
-// import { editTrain, deleteTrainAction } from "../controllers/trains.js";
+import { editTrain, deleteTrainAction } from "../controllers/trainsController.js";
 
 // Renders the list of students into an HTML table
 export function renderTrainTable(trains) {
@@ -12,7 +12,7 @@ export function renderTrainTable(trains) {
   body.innerHTML = "";
 
   // Check if the student array is empty
-  if (students.length === 0) {
+  if (trains.length === 0) {
     // If no students are found, display the 'no students' message and stop execution
     noTrains.style.display = "block";
     return;

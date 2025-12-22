@@ -6,9 +6,9 @@ import {
     apiDeleteTrain
 } from "../services/trainService.js";
 
-import { showAlert } from "../components/Alert.js";
+// import { showAlert } from "../components/Alert.js";
 import { renderTrainTable } from "../components/TrainTable.js";
-import { resetForm, fillFrom } from "../components/TrainForm.js";
+import { resetForm, trainform } from "../components/TrainForm.js";
 
 import { setState, getState } from "../state/store.js";
 import {$, createElement } from "../utils/dom.js";
