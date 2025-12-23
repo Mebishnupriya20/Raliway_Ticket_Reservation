@@ -8,7 +8,7 @@
   <!-- Add / Edit Train Form -->
   <div class="bg-white p-5 rounded shadow mb-8">
     <h2 class="font-semibold mb-3 text-lg">Add New Train</h2>
-    <form id="trainForm" class="space-y-3">
+    <form id="TrainForm" class="space-y-3">
       <input type="text" id="train_name" placeholder="Train Name" required class="w-full border rounded px-3 py-2">
       <input type="text" id="source" placeholder="Source Station" required class="w-full border rounded px-3 py-2">
       <input type="text" id="destination" placeholder="Destination Station" required class="w-full border rounded px-3 py-2">
@@ -21,7 +21,7 @@
           Add Train
         </button>
 
-        <button type="button" id="cancelTrainBtn"
+        <button type="button" id="cancelBtn"
           class="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded hidden">
           Cancel
         </button>
@@ -37,7 +37,7 @@
       <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500 mx-auto"></div>
     </div>
 
-    <div id="trainTableContainer" class="hidden overflow-x-auto">
+    <div id="TrainsTableContainer" class="hidden overflow-x-auto">
       <table class="min-w-full text-left border">
         <thead class="bg-gray-200">
           <tr>
@@ -50,7 +50,7 @@
             <th class="px-3 py-2">Actions</th>
           </tr>
         </thead>
-        <tbody id="trainTableBody"></tbody>
+        <tbody id="TrainsTableBody"></tbody>
       </table>
 
       <p id="noTrains" class="text-center text-gray-500 mt-3 hidden">

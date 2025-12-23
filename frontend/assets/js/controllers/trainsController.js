@@ -6,16 +6,16 @@ import {
     apiDeleteTrain
 } from "../services/trainService.js";
 
-// import { showAlert } from "../components/Alert.js";
+import { showAlert } from "../components/Alert.js";
 import { renderTrainTable } from "../components/TrainTable.js";
-import { resetForm, trainform } from "../components/TrainForm.js";
+import { resetForm, trainForm } from "../components/TrainForm.js";
 
 import { setState, getState } from "../state/store.js";
 import {$, createElement } from "../utils/dom.js";
 
 // Setup event listeners and load initial data
 // Initialize the main logic and set up all necessary event listeners
-export function initTrainController() {
+export function initTrainsController() {
     // Start by fetching and displaying all student data immediately upon load
     loadTrains();
     
@@ -23,7 +23,7 @@ export function initTrainController() {
 
      
   // Attach a listener to the 'submit' event of the student input form
-  $("trainForm").addEventListener("submit", async (e) => {
+  $("TrainForm").addEventListener("submit", async (e) => {
      // Prevent the browser's default form submission behavior (page refresh)
      e.preventDefault();
 
@@ -41,7 +41,7 @@ export function initTrainController() {
 
        // Use a ternary operator to decide which action to take:
        editingId
-       ? await UpdateTrain(editingId, date)   // If editingId exists, update the trains
+       ? await updateTrain(editingId, data)   // If editingId exists, update the trains
        : await createNewTrain(data);  // Otherwise, create a new train
   });
 
@@ -61,7 +61,7 @@ export function initTrainController() {
 export async function loadTrains() {
     // Get references to the loading spinner and the main data table elements
     const spinner = $("loadingSpinner");
-    const table = $("trainsTableContainer");
+    const table = $("TrainsTableContainer");
     
     // Show the spinner and hide the table to indicate a loading state
     spinner.style.display = "block";
@@ -95,7 +95,7 @@ export async function editTrain(id) {
     const train = await apiGetOneTrain(id);
 
     setState({ editingId: id });
-    fillFrom(train);
+    trainForm(train);
 
     window.scrollTo({ top: 0, behavior: "smooth"});
 }

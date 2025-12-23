@@ -5,7 +5,7 @@ import { editTrain, deleteTrainAction } from "../controllers/trainsController.js
 // Renders the list of students into an HTML table
 export function renderTrainTable(trains) {
   // Get references to the table body where rows will be inserted and the 'no students' message
-  const body = $("trainsTableBody");
+  const body = $("TrainsTableBody");
   const noTrains = $("noTrains");
 
   // Clear any existing rows from the table body before rendering new data
