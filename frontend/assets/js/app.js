@@ -1,6 +1,6 @@
 // main entrypoint for frontend
 import { initTrainsController } from "./controllers/trainsController.js";
-//import { initBookingsController } from "./controllers/bookingsController.js";
+import { initBookingsController } from "./controllers/bookingsController.js";
 //import { initStaffController } from "./controllers/staffController.js";
 import { router } from "./router/viewRouter.js";
 
@@ -8,6 +8,6 @@ import { router } from "./router/viewRouter.js";
 window.addEventListener("DOMContentLoaded", () => {
     router();
    initTrainsController();
-   // initBookingsController();
+   initBookingsController();
    // initStaffController();
 });

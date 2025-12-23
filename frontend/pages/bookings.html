@@ -1,4 +1,4 @@
-<!-- <div class="max-w-3xl mx-auto p-6">
+<div class="max-w-3xl mx-auto p-6">
 
   <div class="flex items-center justify-between mb-6">
     <h1 class="text-3xl font-bold">Booking Management</h1>
@@ -8,7 +8,7 @@
   <!-- Add / Edit Booking Form -->
   <div class="bg-white p-5 rounded shadow mb-8">
     <h2 class="font-semibold mb-3 text-lg">Add New Booking</h2>
-    <form id="bookingForm" class="space-y-3">
+    <form id="BookingForm" class="space-y-3">
         <input type="number" id="train_id" placeholder="Train ID" required class="w-full border rounded px-3 py-2">
         <input type="text" id="passenger_name" placeholder="Passenger Name" required class="w-full border rounded px-3 py-2">
       <input type="number" id="seat_number" placeholder="Seat Number" required class="w-full border rounded px-3 py-2">
@@ -20,7 +20,7 @@
           Add Booking
         </button>
 
-        <button type="button" id="cancelBookingBtn"
+        <button type="button" id="cancelBtn"
           class="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded hidden">
           Cancel
         </button>
@@ -36,7 +36,7 @@
       <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500 mx-auto"></div>
     </div>
 
-    <div id="bookingTableContainer" class="hidden overflow-x-auto">
+    <div id="BookingsTableContainer" class="hidden overflow-x-auto">
       <table class="min-w-full text-left border">
         <thead class="bg-gray-200">
           <tr>
@@ -48,7 +48,7 @@
             <th class="px-3 py-2">Actions</th>
           </tr>
         </thead>
-        <tbody id="bookingTableBody"></tbody>
+        <tbody id="BookingsTableBody"></tbody>
       </table>
 
       <p id="noBookings" class="text-center text-gray-500 mt-3 hidden">
@@ -58,4 +58,4 @@
   </div>
 
   <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
-</div> -->
+</div>

@@ -3,7 +3,7 @@ window.ENV = {
   APP_NAME: "Railway Ticket Reservation",
    API_BASE_URLS: {
     trains: "/api/trains",
-    // bookings: "/api/bookings",
+    bookings: "/api/bookings",
     // staff: "/api/staff"
   }
 };
