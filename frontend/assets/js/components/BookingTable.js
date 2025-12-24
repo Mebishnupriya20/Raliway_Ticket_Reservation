@@ -1,6 +1,6 @@
 
 import { $ } from "../utils/dom.js";
-import { editBooking, deleteBookingAction } from "../controllers/bookings.js";
+import { editBooking, deleteBookingAction } from "../controllers/bookingsController.js";
 
 // Renders the list of students into an HTML table
 export function renderBookingTable(bookings) {
@@ -52,7 +52,7 @@ export function renderBookingTable(bookings) {
     
     // Find the 'Delete' button within this specific row and attach a click handler
     // When clicked, call the deleteStudentAction function with the correct student ID
-    row.querySelector("[data-delete]").onclick = () => deleteBookingAction(train.id);
+    row.querySelector("[data-delete]").onclick = () => deleteBookingAction(booking.id);
 
     // Append the fully constructed row to the table body
     body.appendChild(row);
