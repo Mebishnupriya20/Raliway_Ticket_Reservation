@@ -2,20 +2,20 @@ import {
     apiGetAllStaff,
     apiCreateStaff,
     apiGetOneStaff,
-    apiUpdatebStaff,
+    apiUpdateStaff,
     apiDeleteStaff
 } from "../services/staffService.js";
 
 import { showAlert } from "../components/Alert.js";
 import { renderStaffTable } from "../components/StaffTable.js";
-import { resetForm, fillFrom } from "../components/StaffForm.js";
+import { resetForm, StaffForm } from "../components/StaffForm.js";
 
 import { setState, getState } from "../state/store.js";
 import {$, createElement } from "../utils/dom.js";
 
 // Setup event listeners and load initial data
 // Initialize the main logic and set up all necessary event listeners
-export function initStaffControllers() {
+export function initStaffController() {
     // Start by fetching and displaying all student data immediately upon load
     loadStaffs();
     
@@ -23,7 +23,7 @@ export function initStaffControllers() {
 
      
   // Attach a listener to the 'submit' event of the student input form
-  $("staffForm").addEventListener("submit", async (e) => {
+  $("StaffForm").addEventListener("submit", async (e) => {
      // Prevent the browser's default form submission behavior (page refresh)
      e.preventDefault();
 
@@ -40,7 +40,7 @@ export function initStaffControllers() {
 
        // Use a ternary operator to decide which action to take:
        editingId
-       ? await updateStaff(editingId, date)   // If editingId exists, update the bookings
+       ? await updateStaff(editingId, data)   // If editingId exists, update the bookings
        : await createNewStaff(data);  // Otherwise, create a new booking
   });
 
@@ -60,19 +60,19 @@ export function initStaffControllers() {
 export async function loadStaffs() {
     // Get references to the loading spinner and the main data table elements
     const spinner = $("loadingSpinner");
-    const table = $("bookingsStaffContainer");
+    const table = $("StaffTableContainer");
     
     // Show the spinner and hide the table to indicate a loading state
     spinner.style.display = "block";
     table.style.display = "none";
 
      // Asynchronously fetch all student records from the backend API
-     const bookings = await apiGetAllStaff();
+     const staffs = await apiGetAllStaff();
 
      // Store the retrieved student array in the application's global state
      setState({ staffs });
       // Render the fetched student data into the HTML table structure
-      renderStaffTable(staffs );
+      renderStaffTable(staffs);
 
        // Hide the spinner and show the table now that the data is loaded and displayed
     spinner.style.display = "none";
@@ -94,14 +94,14 @@ export async function editStaff(id) {
     const staff = await apiGetOneStaff(id);
 
     setState({ editingId: id });
-    fillFrom(staff);
+    StaffForm(staff);
 
     window.scrollTo({ top: 0, behavior: "smooth"});
 }
 
 // // Update an existing student
 export async function updateStaff(id, data) {
-    const res = await apiUpdatebStaff(id, data);
+    const res = await apiUpdateStaff(id, data);
     if (res.ok) {
         showAlert("Updated!");
          resetForm();

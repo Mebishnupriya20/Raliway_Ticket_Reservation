@@ -4,6 +4,6 @@ window.ENV = {
    API_BASE_URLS: {
     trains: "/api/trains",
     bookings: "/api/bookings",
-    // staff: "/api/staff"
+    staff: "/api/staff"
   }
 };

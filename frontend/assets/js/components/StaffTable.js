@@ -1,11 +1,11 @@
 
 import { $ } from "../utils/dom.js";
-// import { editStaff, deleteStaffAction } from "../controllers/staff.js";
+import { editStaff, deleteStaffAction } from "../controllers/staffController.js";
 
 // Renders the list of students into an HTML table
 export function renderStaffTable(staffs) {
   // Get references to the table body where rows will be inserted and the 'no students' message
-  const body = $("staffsTableBody");
+  const body = $("StaffTableBody");
   const noStaffs = $("noStaffs");
 
   // Clear any existing rows from the table body before rendering new data

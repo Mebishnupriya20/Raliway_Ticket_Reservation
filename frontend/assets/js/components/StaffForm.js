@@ -3,7 +3,7 @@ import { $, createElement } from "../utils/dom.js";
 // Resets the input form to its default state for creating a new student
 export function resetForm() {
   // Use the native .reset() method on the HTML form element
-  $("staffForm").reset();
+  $("StaffForm").reset();
 
   // Change the submit button text back to "Add Staff"
   $("submitBtn").textContent = "Add Staff";
@@ -13,7 +13,7 @@ export function resetForm() {
 }
 
 // Populates the input form fields with data from a selected student object (for editing)
-export function fillForm(staff) {
+export function StaffForm(staff) {
   // Fill each input field with the corresponding property from the student data
   $("name").value = staff.name;
   $("role").value = staff.role;
