@@ -19,7 +19,7 @@ import os
 
 class TestDatabaseBasics(unittest.TestCase):
 
-    def test_students_db_exists(self):
+    def test_railway_db_exists(self):
         """
         Check that the database file is present in the project.
 
@@ -65,7 +65,13 @@ class TestDatabaseBasics(unittest.TestCase):
         # Check: expected table should exist
         self.assertIn(
             "trains",
+            tables
+        )
+        self.assertIn(
             "bookings",
+            tables
+        )
+        self.assertIn(
             "staff",
             tables
         )
