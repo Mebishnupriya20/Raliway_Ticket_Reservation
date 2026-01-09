@@ -77,56 +77,7 @@ def db_delete(booking_id):
     conn.close()
     return booking
 
-#    join
-def db_get_all_with_train():
-    conn = get_connection()
 
-    rows = conn.execute("""
-        SELECT
-            b.id            AS booking_id,
-            b.train_id      AS booking_train_id,
-            b.passenger_name,
-            b.seat_number,
-            b.booking_date,
-            b.created_at    AS booking_created_at,
-
-            t.id            AS train_id,
-            t.train_name,
-            t.source,
-            t.destination,
-            t.departure_time,
-            t.arrival_time,
-            t.created_at    AS train_created_at
-        FROM bookings b
-        INNER JOIN trains t
-            ON b.train_id = t.id
-        ORDER BY b.id DESC
-    """).fetchall()
-
-    conn.close()
-
-    return [
-        {
-            "booking": {
-                "id": r["booking_id"],
-                "train_id": r["booking_train_id"],
-                "passenger_name": r["passenger_name"],
-                "seat_number": r["seat_number"],
-                "booking_date": r["booking_date"],
-                "created_at": r["booking_created_at"],
-            },
-            "train": {
-                "id": r["train_id"],
-                "train_name": r["train_name"],
-                "source": r["source"],
-                "destination": r["destination"],
-                "departure_time": r["departure_time"],
-                "arrival_time": r["arrival_time"],
-                "created_at": r["train_created_at"],
-            }
-        }
-        for r in rows
-    ]
 
     
 

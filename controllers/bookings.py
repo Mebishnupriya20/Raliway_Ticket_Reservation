@@ -8,8 +8,8 @@ from services.booking_service import (
     service_get_one,
     service_create,
     service_update,
-    service_delete,
-    service_get_all_with_train
+    service_delete
+    
 )
 
 
@@ -39,7 +39,4 @@ def delete_booking(handler, booking_id):
     return send_json(handler, 200, {"deleted": True}) if deleted else send_404(handler)
 
 
-#    join
-def get_all_bookings_with_train(handler):
-    data = service_get_all_with_train()
-    return send_json(handler, 200, data)
+
