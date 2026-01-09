@@ -67,7 +67,9 @@ class RailwayRouter(BaseHTTPRequestHandler):
         # UI Routes
         if handle_ui_routes(self, path):
             return
-        
+           # API: Bookings with Train (JOIN)
+        if path == "/api/bookings-with-trains":
+           return get_all_bookings_with_train(self)
         
         # API: List trains
         if path == "/api/trains":
@@ -82,9 +84,7 @@ class RailwayRouter(BaseHTTPRequestHandler):
         if path == "/api/bookings":
            return get_all_bookings(self)
 
-           # API: Bookings with Train (JOIN)
-        if path == "/api/bookings-with-trains":
-           return get_all_bookings_with_train(self)
+        
 
         
         # API: Get booking by id
