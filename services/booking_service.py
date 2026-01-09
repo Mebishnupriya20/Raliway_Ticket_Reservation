@@ -6,7 +6,8 @@ from database.bookings import (
     db_get_one,
     db_create,
     db_update,
-    db_delete
+    db_delete,
+    db_get_all_with_train 
 )
 
 
@@ -28,3 +29,7 @@ def service_update(booking_id, data):
 
 def service_delete(booking_id):
     return db_delete(booking_id)
+
+#    join
+def service_get_all_with_train():
+    return db_get_all_with_train()

@@ -17,7 +17,8 @@ from controllers.bookings import (
     get_booking,
     create_booking,
     update_booking,
-    delete_booking
+    delete_booking,
+    get_all_bookings_with_train
 )
 
 from controllers.staff import (
@@ -80,6 +81,11 @@ class RailwayRouter(BaseHTTPRequestHandler):
         # API: List bookings
         if path == "/api/bookings":
            return get_all_bookings(self)
+
+           # API: Bookings with Train (JOIN)
+        if path == "/api/bookings-with-trains":
+           return get_all_bookings_with_train(self)
+
         
         # API: Get booking by id
         if path.startswith("/api/bookings/"):
