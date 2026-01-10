@@ -50,6 +50,19 @@ def init_database():
         )
     """)
 
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS reservations (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              train_id INTEGER NOT NULL,
+               booking_id INTEGER NOT NULL,
+                reserved_on TEXT,
+                created_at TEXT,
+                updated_at TEXT,
+                FOREIGN KEY(train_id) REFERENCES students(id),
+                FOREIGN KEY(booking_id) REFERENCES courses(id)
+        )
+    """)
+
     conn.commit()
     conn.close()
     print("✓ Database initialized")
