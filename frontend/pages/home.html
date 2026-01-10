@@ -1,56 +1,60 @@
-1  <div class="max-w-2xl mx-auto p-6 main-wrapper page-home">
+<div class="max-w-6xl mx-auto p-6 main-wrapper page-home">
+    
+    <div class="text-center mb-12 mt-8">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800">Welcome to Railway System</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Streamline your railway operations with our comprehensive solution. 
+            Manage trains, handle bookings, and organize staff records efficiently.
+        </p>
+    </div>
 
+    <div class="dashboard-grid">
 
-  <h1 class="text-3xl font-bold mb-4 text-gray-800">Welcome</h1>
+        <a href="/trains" data-link class="feature-card group">
+            <div class="icon-wrapper icon-blue">
+                <i class="fa-solid fa-train"></i>
+            </div>
+            <h3 class="card-title">Train Management</h3>
+            <p class="card-desc">
+                Schedule new trains, manage routes, and track departure/arrival timings.
+            </p>
+        </a>
 
-  <p class="text-gray-600 mb-8 leading-relaxed">
-    This is the starting point of your Full-Stack learning journey.<br>
-    Choose what you want to explore:
-  </p>
+        <a href="/bookings" data-link class="feature-card group">
+            <div class="icon-wrapper icon-green">
+                <i class="fa-solid fa-ticket"></i>
+            </div>
+            <h3 class="card-title">Booking System</h3>
+            <p class="card-desc">
+                Handle passenger reservations, seat allocations, and ticket records seamlessly.
+            </p>
+        </a>
 
-  <div class="space-y-4">
+        <a href="/staff" data-link class="feature-card group">
+            <div class="icon-wrapper icon-purple">
+                <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <h3 class="card-title">Staff Management</h3>
+            <p class="card-desc">
+                Maintain employee records, assign roles, and manage contact information.
+            </p>
+        </a>
 
-<a href="/trains" data-link
-    class="block w-full px-4 py-3 text-center border border-gray-300 rounded hover:bg-gray-200 transition flex items-center justify-center gap-2">
-    <i class="fa-solid fa-users"></i>
-    Train Management
-</a>
+    </div>
 
+    <div class="mt-16 border-t border-gray-200 pt-8">
+        <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4 text-center">Developer Resources</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="/api/trains" target="_blank" class="text-xs text-gray-500 hover:text-blue-600 border px-3 py-1.5 rounded-full transition bg-white hover:border-blue-300">
+                <i class="fa-solid fa-code mr-1"></i> JSON: Trains
+            </a>
+            <a href="/api/bookings" target="_blank" class="text-xs text-gray-500 hover:text-blue-600 border px-3 py-1.5 rounded-full transition bg-white hover:border-blue-300">
+                <i class="fa-solid fa-code mr-1"></i> JSON: Bookings
+            </a>
+            <a href="/api/staff" target="_blank" class="text-xs text-gray-500 hover:text-blue-600 border px-3 py-1.5 rounded-full transition bg-white hover:border-blue-300">
+                <i class="fa-solid fa-code mr-1"></i> JSON: Staff
+            </a>
+        </div>
+    </div>
 
-<a href="/bookings" data-link
-    class="block w-full px-4 py-3 text-center border border-gray-300 rounded hover:bg-gray-200 transition flex items-center justify-center gap-2">
-    <i class="fa-solid fa-users"></i>
-    Booking Management
-</a>
-
-
-<a href="/staff" data-link
-    class="block w-full px-4 py-3 text-center border border-gray-300 rounded hover:bg-gray-200 transition flex items-center justify-center gap-2">
-    <i class="fa-solid fa-users"></i>
-    Staff Management
-</a>
-
-<a href="/api/trains" target="_blank"
-    class="block w-full px-4 py-3 text-center border border-gray-300 rounded hover:bg-gray-200 transition flex items-center justify-center gap-2">
-    <i class="fa-solid fa-code"></i>
-    Raw JSON API Trains
-</a>
-
-
-<a href="/api/bookings" target="_blank"
-    class="block w-full px-4 py-3 text-center border border-gray-300 rounded hover:bg-gray-200 transition flex items-center justify-center gap-2">
-    <i class="fa-solid fa-code"></i>
-    Raw JSON API Booking
-</a>
-
-
-<a href="/api/staff" target="_blank"
-    class="block w-full px-4 py-3 text-center border border-gray-300 rounded hover:bg-gray-200 transition flex items-center justify-center gap-2">
-    <i class="fa-solid fa-code"></i>
-    Raw JSON API Staff
-</a>
-
-
-
-  </div>
 </div>
