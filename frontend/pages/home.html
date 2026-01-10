@@ -1,60 +1,60 @@
-<div class="max-w-6xl mx-auto p-6 main-wrapper page-home">
+<div class="main-wrapper page-home">
+  <div class="max-w-6xl mx-auto p-6">
     
-    <div class="text-center mb-12 mt-8">
-        <h1 class="text-4xl font-bold mb-4 text-gray-800">Welcome to Railway System</h1>
-        <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Streamline your railway operations with our comprehensive solution. 
-            Manage trains, handle bookings, and organize staff records efficiently.
-        </p>
+    <div class="text-center mb-16 mt-12">
+      <h1 class="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+        Railway Portal
+      </h1>
+      <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+        Select a module below to manage train schedules, passenger bookings, or workforce data.
+      </p>
     </div>
 
     <div class="dashboard-grid">
 
-        <a href="/trains" data-link class="feature-card group">
-            <div class="icon-wrapper icon-blue">
-                <i class="fa-solid fa-train"></i>
-            </div>
-            <h3 class="card-title">Train Management</h3>
-            <p class="card-desc">
-                Schedule new trains, manage routes, and track departure/arrival timings.
-            </p>
-        </a>
-
-        <a href="/bookings" data-link class="feature-card group">
-            <div class="icon-wrapper icon-green">
-                <i class="fa-solid fa-ticket"></i>
-            </div>
-            <h3 class="card-title">Booking System</h3>
-            <p class="card-desc">
-                Handle passenger reservations, seat allocations, and ticket records seamlessly.
-            </p>
-        </a>
-
-        <a href="/staff" data-link class="feature-card group">
-            <div class="icon-wrapper icon-purple">
-                <i class="fa-solid fa-users-gear"></i>
-            </div>
-            <h3 class="card-title">Staff Management</h3>
-            <p class="card-desc">
-                Maintain employee records, assign roles, and manage contact information.
-            </p>
-        </a>
-
-    </div>
-
-    <div class="mt-16 border-t border-gray-200 pt-8">
-        <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4 text-center">Developer Resources</p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="/api/trains" target="_blank" class="text-xs text-gray-500 hover:text-blue-600 border px-3 py-1.5 rounded-full transition bg-white hover:border-blue-300">
-                <i class="fa-solid fa-code mr-1"></i> JSON: Trains
-            </a>
-            <a href="/api/bookings" target="_blank" class="text-xs text-gray-500 hover:text-blue-600 border px-3 py-1.5 rounded-full transition bg-white hover:border-blue-300">
-                <i class="fa-solid fa-code mr-1"></i> JSON: Bookings
-            </a>
-            <a href="/api/staff" target="_blank" class="text-xs text-gray-500 hover:text-blue-600 border px-3 py-1.5 rounded-full transition bg-white hover:border-blue-300">
-                <i class="fa-solid fa-code mr-1"></i> JSON: Staff
-            </a>
+      <a href="/trains" data-link class="feature-card group">
+        <div class="icon-wrapper icon-blue">
+          <i class="fa-solid fa-train"></i>
         </div>
+        <h3 class="card-title">Trains</h3>
+        <p class="card-desc">
+          Manage locomotives, track routes, and update arrival/departure timings.
+        </p>
+      </a>
+
+      <a href="/bookings" data-link class="feature-card group">
+        <div class="icon-wrapper icon-green">
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+        <h3 class="card-title">Bookings</h3>
+        <p class="card-desc">
+          Monitor ticket reservations, assign seats, and view passenger details.
+        </p>
+      </a>
+
+      <a href="/staff" data-link class="feature-card group">
+        <div class="icon-wrapper icon-purple">
+          <i class="fa-solid fa-users-gear"></i>
+        </div>
+        <h3 class="card-title">Staff</h3>
+        <p class="card-desc">
+          Manage station crew, update roles, and maintain staff contact records.
+        </p>
+      </a>
+
     </div>
 
+    <div class="mt-20 pt-10 border-t border-gray-300/50 flex flex-wrap justify-center gap-8">
+        <a href="/api/trains" target="_blank" class="text-xs font-bold text-gray-400 hover:text-blue-500 transition tracking-widest uppercase">
+            <i class="fa-solid fa-link mr-1"></i> Train API
+        </a>
+        <a href="/api/bookings" target="_blank" class="text-xs font-bold text-gray-400 hover:text-green-500 transition tracking-widest uppercase">
+            <i class="fa-solid fa-link mr-1"></i> Booking API
+        </a>
+        <a href="/api/staff" target="_blank" class="text-xs font-bold text-gray-400 hover:text-purple-500 transition tracking-widest uppercase">
+            <i class="fa-solid fa-link mr-1"></i> Staff API
+        </a>
+    </div>
+
+  </div>
 </div>
