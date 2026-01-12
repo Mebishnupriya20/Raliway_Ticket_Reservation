@@ -1,8 +1,8 @@
 import { $ } from "../utils/dom.js";
 
 export function renderReservationReportTable(rows) {
-  const body = $("reportTableBody");
-  const empty = $("noRows");
+  const body = $("reservationsTableBody");
+  const empty = $("noReservations");
 
   body.innerHTML = "";
 

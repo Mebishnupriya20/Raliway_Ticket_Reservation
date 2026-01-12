@@ -49,7 +49,7 @@ export async function router() {
     initReservationReportController();
   }else if (path === "/staff") {
     await loadView("/frontend/pages/staff.html");
-    initStaffController
+    initStaffController();
   
 }else {
     await loadView("/frontend/pages/404.html");

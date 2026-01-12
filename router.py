@@ -41,7 +41,7 @@ from core.static import serve_static
 from core.responses import send_404
 from core.middleware import add_cors_headers
 
-FRONTEND_ROUTES = {"/", "/home", "/trains", "/bookings", "/staff", "/reservations", "/reports/reservations" "/docs"}
+FRONTEND_ROUTES = {"/", "/home", "/trains", "/bookings", "/staff", "/reservations", "/reports/reservations" ,"/docs"}
 
 def handle_ui_routes(handler, path):
     # Catch-all frontend routes
@@ -113,7 +113,7 @@ class RailwayRouter(BaseHTTPRequestHandler):
             reservation_id = int(path.split("/")[-1])
             return get_reservation(self,reservation_id)
 
-        if path == "/api/reports/resrvations":
+        if path == "/api/reports/reservations":
             return get_reservation_report(self)    
         
         # API: List staff
