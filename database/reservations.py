@@ -34,7 +34,7 @@ def reservations_create(data: dict):
     conn.close()
     return reservations_get_one(new_id)
 
-def  reservation_delete(reservation_id: int):
+def  reservations_delete(reservation_id: int):
     reservation = reservations_get_one(reservation_id)
     if not reservation:
        return None
