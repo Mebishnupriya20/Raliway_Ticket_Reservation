@@ -57,8 +57,8 @@ def init_database():
                 reserved_on TEXT,
                 created_at TEXT,
                 updated_at TEXT,
-                FOREIGN KEY(train_id) REFERENCES students(id),
-                FOREIGN KEY(booking_id) REFERENCES courses(id)
+                FOREIGN KEY(train_id) REFERENCES trains(id),
+                FOREIGN KEY(booking_id) REFERENCES bookings(id)
         )
     """)
 

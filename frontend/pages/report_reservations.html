@@ -40,7 +40,7 @@
         </div>
 
         <!-- Table -->
-        <div id="reportTableContainer" class="hidden overflow-x-auto">
+        <div id="reservationsTableBody" class="hidden overflow-x-auto">
             <table class="min-w-full text-left border">
                 <thead class="bg-gray-200">
                     <tr>
@@ -50,19 +50,14 @@
                         <th class="px-3 py-2">Reserved On</th>
                     </tr>
                 </thead>
-                <tbody id="reportTableBody"></tbody>
+                <tbody id="reservationsTableBody"></tbody>
             </table>
 
-            <p id="noRows" class="text-center text-gray-500 mt-3 hidden">
+            <p id="noReservations" class="text-center text-gray-500 mt-3 hidden">
                 No joined rows found. Create an reservation first.
             </p>
 
-            <!-- Data Flow Hint -->
-            <p class="text-xs text-gray-500 mt-4">
-                Data flow:
-                <strong>trains</strong> → <strong>reservations</strong> → <strong>bookings</strong>
-            </p>
-
+           
             <!-- Always-visible SQL block (documentation style) -->
             <div class="mt-6 border border-gray-200 rounded-lg overflow-hidden">
                 <div class="bg-gray-50 px-4 py-3 flex items-center justify-between">
@@ -78,7 +73,7 @@
 SELECT
     r.id AS reservation_id,
     t.name AS train_name,
-    b.title AS booking_passenger,
+    b.passenger AS booking_passenger_name,
     r.reserved_on
 FROM reservations r
 JOIN trains t ON r.train_id = t.id

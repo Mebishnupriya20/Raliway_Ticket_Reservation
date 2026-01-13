@@ -12,11 +12,11 @@ def reservation_report():
             r.id AS reservation_id,
             r.reserved_on,
             t.id AS train_id,
-            t.name AS train_name,
+            t.train_name AS train_name,
             t.source AS train_source,
             t.destination AS train_destination,
             b.id AS booking_id,
-            b.name AS booking_passager_name
+            b.passenger_name AS booking_passenger_name
          FROM reservations r
         JOIN trains t ON t.id = r.train_id
          JOIN bookings b ON b.id = r.booking_id
