@@ -8,7 +8,7 @@ from services.reservation_service import (
 )
 
 def get_all_reservations(handler):
-    return send_json(handler, 200, service_get_all)
+    return send_json(handler, 200, service_get_all())
 
 def get_reservation(handler, reservation_id):
     reservation = service_get_one(reservation_id)

@@ -1,7 +1,7 @@
 import { $ } from "../utils/dom.js";
 
 export function resetBookingForm() {
-  $("bookingForm").reset();
+  $("BookingForm").reset();
   $("cancelBtn").classList.add("hidden");
   $("submitBtn").textContent = "Add Booking";
 }

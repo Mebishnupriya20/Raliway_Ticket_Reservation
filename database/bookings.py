@@ -27,7 +27,7 @@ def db_create(data):
         """
         INSERT INTO bookings
         (passenger_name, seat_number, booking_date, created_at)
-        VALUES (?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?)
         """,
         (
             
