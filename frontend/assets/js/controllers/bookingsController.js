@@ -8,7 +8,7 @@ import {
 
 import { showAlert } from "../components/Alert.js";
 import { renderBookingTable } from "../components/BookingTable.js";
-import { resetForm, BookingForm } from "../components/BookingForm.js";
+import { resetBookingForm, fillBookingForm } from "../components/BookingForm.js";
 
 import { setState, getState } from "../state/store.js";
 import {$, createElement } from "../utils/dom.js";
@@ -53,7 +53,7 @@ export function initBookingsController() {
       // Clear the editing state (set the ID to null)
       setState({ editingId: null });
       // Clear all input fields in the form
-      resetForm();
+      resetBookingForm();
   });
 }
 
@@ -85,7 +85,7 @@ export async function  createNewBooking(data) {
     const res = await apiCreateBooking(data);
     if (res.ok) {
         showAlert("Booking added!");
-        resetForm();
+        resetBookingForm();
         loadBookings();
     }
 }
@@ -95,7 +95,7 @@ export async function editBooking(id) {
     const booking = await apiGetOneBooking(id);
 
     setState({ editingId: id });
-    BookingForm(booking);
+    fillBookingForm(booking);
 
     window.scrollTo({ top: 0, behavior: "smooth"});
 }

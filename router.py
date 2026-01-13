@@ -97,9 +97,6 @@ class RailwayRouter(BaseHTTPRequestHandler):
         # API: List bookings
         if path == "/api/bookings":
            return get_all_bookings(self)
-
-        
-
         
         # API: Get booking by id
         if path.startswith("/api/bookings/"):
@@ -111,7 +108,7 @@ class RailwayRouter(BaseHTTPRequestHandler):
 
         if path.startswith("/api/reservations/"):
             reservation_id = int(path.split("/")[-1])
-            return get_reservation(self,reservation_id)
+            return get_reservation(self, reservation_id)
 
         if path == "/api/reports/reservations":
             return get_reservation_report(self)    

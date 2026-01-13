@@ -6,7 +6,7 @@
   </div>
 
   <div class="bg-white p-5 rounded shadow mb-8">
-    <h2 class="font-semibold mb-3 text-lg">Create Enrollment</h2>
+    <h2 class="font-semibold mb-3 text-lg">Create reservation</h2>
 
     <form id="reservationForm" class="space-y-3">
       <select id="train_id" required class="w-full border rounded px-3 py-2">
@@ -19,7 +19,7 @@
 
       <button type="submit" id="submitBtn"
         class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">
-        Enroll Train
+        reserved Train
       </button>
     </form>
 
@@ -35,7 +35,7 @@
       <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500 mx-auto"></div>
     </div>
 
-    <div id="reservation" class="hidden overflow-x-auto">
+    <div id="reservationsTableContainer" class="hidden overflow-x-auto">
       <table class="min-w-full text-left border">
         <thead class="bg-gray-200">
           <tr>
@@ -50,7 +50,7 @@
       </table>
 
       <p id="noReservations" class="text-center text-gray-500 mt-3 hidden">
-        No enrollments found. Create one using the form above.
+        No reservations found. Create one using the form above.
       </p>
     </div>
   </div>

@@ -78,11 +78,11 @@
 SELECT
     r.id AS reservation_id,
     t.name AS train_name,
-    b.title AS booking_title,
-    r.enrolled_on
+    b.title AS booking_passenger,
+    r.reserved_on
 FROM reservations r
 JOIN trains t ON r.train_id = t.id
-JOIN booking b ON r.booking_id = b.id;
+JOIN bookings b ON r.booking_id = b.id;
                 </pre>
 
                 <div class="bg-gray-50 px-4 py-3 text-xs text-gray-600">

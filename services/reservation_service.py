@@ -11,11 +11,11 @@ from database.reservations import (
 def service_get_all():
     return reservations_get_all()
 
-def service_get_one(enrollment_id):
-    return reservations_get_one(enrollment_id)
+def service_get_one(reservation_id):
+    return reservations_get_one(reservation_id)
 
 def service_create(data):
     return reservations_create(data)
 
-def service_delete(enrollment_id):
-    return reservations_delete(enrollment_id)
+def service_delete(reservation_id):
+    return reservations_delete(reservation_id)

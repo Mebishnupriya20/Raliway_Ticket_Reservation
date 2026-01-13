@@ -1,4 +1,4 @@
-const BASE = window.ENV.API_BASE_URLS.replace("/trains", "");
+const BASE = window.ENV.API_BASE_URL.replace("/trains", "");
 const API_URL = `${BASE}/reservations`;
 
 async function safeJson(res) {
