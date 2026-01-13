@@ -17,7 +17,6 @@ export function renderBookingTable(bookings) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td class="px-3 py-2 border">${b.id}</td>
-      <td class="px-3 py-2 border">${b.train_id ?? ""}</td>
       <td class="px-3 py-2 border">${b.passenger_name ?? ""}</td>
       <td class="px-3 py-2 border">${b.seat_number ?? ""}</td>
       <td class="px-3 py-2 border">${b.booking_date ?? ""}</td>

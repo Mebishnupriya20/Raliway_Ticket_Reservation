@@ -8,7 +8,6 @@ export function resetBookingForm() {
 
 export function fillBookingForm(booking) {
   $("passenger_name").value = booking.passenger_name ?? "";
-  $("train_id").value = booking.train_id ?? "";
   $("seat_number").value = booking.seat_number ?? "";
   $("booking_date").value = booking.booking_date ?? "";
   $("cancelBtn").classList.remove("hidden");
