@@ -18,7 +18,7 @@
 
         <ul class="list-disc list-inside mt-2">
             <li><strong>Trains</strong> — what train is</li>
-            <li><strong>Booking</strong> — who is book the train</li>
+            <li><strong>Bookings</strong> — who is book the train</li>
             <li><strong>Reservations</strong> — how trains and bookings are linked</li>
         </ul>
 
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Table -->
-        <div id="reservationsTableBody" class="hidden overflow-x-auto">
+        <div id="reportTableContainor class="hidden overflow-x-auto">
             <table class="min-w-full text-left border">
                 <thead class="bg-gray-200">
                     <tr>
@@ -50,10 +50,10 @@
                         <th class="px-3 py-2">Reserved On</th>
                     </tr>
                 </thead>
-                <tbody id="reservationsTableBody"></tbody>
+                <tbody id="reportTableBody"></tbody>
             </table>
 
-            <p id="noReservations" class="text-center text-gray-500 mt-3 hidden">
+            <p id="noRows" class="text-center text-gray-500 mt-3 hidden">
                 No joined rows found. Create an reservation first.
             </p>
 
@@ -72,7 +72,7 @@
                 <pre class="bg-white px-4 py-4 text-sm overflow-x-auto leading-relaxed">
 SELECT
     r.id AS reservation_id,
-    t.name AS train_name,
+    t.train_name AS train_name,
     b.passenger AS booking_passenger_name,
     r.reserved_on
 FROM reservations r
