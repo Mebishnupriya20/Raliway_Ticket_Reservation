@@ -10,7 +10,7 @@ def reservations_get_all():
 
 def reservations_get_one(reservation_id: int):
     conn = get_connection()
-    row = conn.execute("SELECT * FROM reservations WHERE id = ?", (reservation_id)).fetchone()
+    row = conn.execute("SELECT * FROM reservations WHERE id = ?", (reservation_id,)).fetchone()
     conn.close()
     return dict(row) if row else None
 
@@ -40,7 +40,7 @@ def  reservations_delete(reservation_id: int):
        return None
     
     conn = get_connection()
-    conn.execute("DELETE FROM reservations WHERE id=?", (reservation_id))
+    conn.execute("DELETE FROM reservations WHERE id=?", (reservation_id,))
     conn.commit()
     conn.close()
     return reservation

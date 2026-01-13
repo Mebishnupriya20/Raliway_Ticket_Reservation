@@ -13,15 +13,15 @@ export function renderReservationTable(reservations) {
   }
   empty.classList.add("hidden");
 
-  reservetions.forEach(e => {
+  reservations.forEach(r => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td class="px-3 py-2 border">${e.id}</td>
-      <td class="px-3 py-2 border">${e.train_id}</td>
-      <td class="px-3 py-2 border">${e.booking_id}</td>
-      <td class="px-3 py-2 border">${e.reserved_on ?? ""}</td>
+      <td class="px-3 py-2 border">${r.id}</td>
+      <td class="px-3 py-2 border">${r.train_id}</td>
+      <td class="px-3 py-2 border">${r.booking_id}</td>
+      <td class="px-3 py-2 border">${r.reserved_on ?? ""}</td>
       <td class="px-3 py-2 border">
-        <button class="text-red-600 underline" data-del="${e.id}">Delete</button>
+        <button class="text-red-600 underline" data-del="${r.id}">Delete</button>
       </td>
     `;
     body.appendChild(tr);

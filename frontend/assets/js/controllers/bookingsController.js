@@ -105,7 +105,7 @@ export async function updateBooking(id, data) {
     const res = await apiUpdateBooking(id, data);
     if (res.ok) {
         showAlert("Updated!");
-         resetForm();
+         resetBookingForm();
         setState({ editingId: null });
         loadBookings();
     }

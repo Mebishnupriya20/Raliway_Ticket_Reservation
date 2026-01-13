@@ -1,6 +1,6 @@
 import { apiGetAll as apiGetAllReservations, apiCreate, apiDelete } from "../services/reservationService.js";
 import { apiGetAllTrain as apiGetAllTrains } from "../services/trainService.js";
-import { apiGetAllBooking as apiGetAllBooking } from "../services/bookingService.js";
+import { apiGetAllBooking as apiGetAllBookings } from "../services/bookingService.js";
 
 import { showAlert } from "../components/Alert.js";
 import { renderReservationTable } from "../components/ReservationTable.js";
@@ -32,7 +32,7 @@ async function loadEverything() {
 }
 
 async function loadTrainsAndBookings() {
-  const [students, courses] = await Promise.all([apiGetAllTrains(), apiGetAllBooking()]);
+  const [trains, bookings] = await Promise.all([apiGetAllTrains(), apiGetAllBookings()]);
   fillReservationDropdowns(trains, bookings);
 }
 

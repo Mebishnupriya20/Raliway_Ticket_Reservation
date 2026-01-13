@@ -125,58 +125,53 @@ class RailwayRouter(BaseHTTPRequestHandler):
         return send_404(self)
     
     def do_POST(self):
-        path = urlparse(self.path).path
         
         # API: Create train
-        if path == "/api/trains":
+        if self.path == "/api/trains":
             return create_train(self)
         
         # API: Create booking
-        if path == "/api/bookings":
+        if self.path == "/api/bookings":
             return create_booking(self)
         
         if self.path == "/api/reservations":
             return create_reservation(self)
         
         # API: Create staff
-        if path == "/api/staff":
+        if self.path == "/api/staff":
             return create_staff(self)
         
         return send_404(self)
     
     def do_PUT(self):
-        parsed = urlparse(self.path)
-        path = parsed.path
         
     #     # API: Update train
-        if path.startswith("/api/trains/"):
-            train_id = int(path.split("/")[-1])
+        if self.path.startswith("/api/trains/"):
+            train_id = int(self.path.split("/")[-1])
             return update_train(self, train_id)
         
     #     # API: Update booking
-        if path.startswith("/api/bookings/"):
-            booking_id = int(path.split("/")[-1])
+        if self.path.startswith("/api/bookings/"):
+            booking_id = int(self.path.split("/")[-1])
             return update_booking(self, booking_id)
         
     #     # API: Update staff
-        if path.startswith("/api/staff/"):
-            staff_id = int(path.split("/")[-1])
+        if self.path.startswith("/api/staff/"):
+            staff_id = int(self.path.split("/")[-1])
             return update_staff(self, staff_id)
         
         return send_404(self)
     
     def do_DELETE(self):
-        parsed = urlparse(self.path)
-        path = parsed.path
         
     #     # API: Delete train
-        if path.startswith("/api/trains/"):
-            train_id = int(path.split("/")[-1])
+        if self.path.startswith("/api/trains/"):
+            train_id = int(self.path.split("/")[-1])
             return delete_train(self, train_id)
         
     #     # API: Cancel booking
-        if path.startswith("/api/bookings/"):
-            booking_id = int(path.split("/")[-1])
+        if self.path.startswith("/api/bookings/"):
+            booking_id = int(self.path.split("/")[-1])
             return delete_booking(self, booking_id)
         
         if self.path.startswith("/api/reservations"):
@@ -184,8 +179,8 @@ class RailwayRouter(BaseHTTPRequestHandler):
             return delete_reservation(self,reservation_id)
         
     #     # API: Delete staff
-        if path.startswith("/api/staff/"):
-            staff_id = int(path.split("/")[-1])
+        if self.path.startswith("/api/staff/"):
+            staff_id = int(self.path.split("/")[-1])
             return delete_staff(self, staff_id)
         
         return send_404(self)

@@ -18,14 +18,14 @@ async function loadView(path) {
   const html = await res.text();
   document.querySelector("#app").innerHTML = html;
 
-  // If Mermaid is available, re-render diagrams after HTML injection
-  if (window.mermaid) {
-    try {
-      await window.mermaid.run({ querySelector: "#app .mermaid" });
-    } catch (e) {
-      console.warn("Mermaid render skipped:", e);
-    }
-  }
+//   // If Mermaid is available, re-render diagrams after HTML injection
+//   if (window.mermaid) {
+//     try {
+//       await window.mermaid.run({ querySelector: "#app .mermaid" });
+//     } catch (e) {
+//       console.warn("Mermaid render skipped:", e);
+//     }
+//   }
 }
 
 export async function router() {

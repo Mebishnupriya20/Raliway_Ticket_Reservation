@@ -20,7 +20,7 @@ export function renderReservationReportTable(rows) {
         ${r.train_name ?? ""} <span class="text-xs text-gray-500">(ID: ${r.train_id ?? ""})</span>
       </td>
       <td class="px-3 py-2 border">
-        ${r.booking_title ?? ""} <span class="text-xs text-gray-500">(ID: ${r.booking_id ?? ""})</span>
+        ${r.booking_passenger_name ?? ""} <span class="text-xs text-gray-500">(ID: ${r.booking_id ?? ""})</span>
       </td>
       <td class="px-3 py-2 border">${r.reserved_on ?? ""}</td>
     `;
