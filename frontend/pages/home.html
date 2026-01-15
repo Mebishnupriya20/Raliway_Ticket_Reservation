@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Portal | Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* 1. Animation for the full screen background */
+        /* 1. Subtle background scroll for a sense of motion */
         @keyframes backgroundScroll {
             from { background-position: 0 0; }
             to { background-position: -1920px 0; }
@@ -18,151 +19,161 @@
             padding: 0;
             min-height: 100vh;
             width: 100%;
-            /* Railway Themed Image with a dark overlay for readability */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                              url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1920&q=80');
+            /* A clean train background with a light overlay for visibility */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), 
+                              url('https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
-            background-repeat: repeat-x;
+            background-position: center;
             background-attachment: fixed;
-            animation: backgroundScroll 80s linear infinite;
             font-family: 'Inter', sans-serif;
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* 2. Dashboard Grid & Card Styling */
+        /* 2. Grid Layout for 5 Cards */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
+        /* 3. Transparent Card Styling */
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 1.25rem;
+            /* This makes the card color transparent (0.05 opacity) */
+            background: rgba(255, 255, 255, 0.05); 
+            
+            /* Low blur value (3px) keeps the background image visible */
+            backdrop-filter: blur(3px); 
+            -webkit-backdrop-filter: blur(3px);
+            
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 1.5rem;
+            border-radius: 1.5rem;
             transition: all 0.3s ease;
             text-decoration: none;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .feature-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
+        /* Icon Container Colors */
         .icon-wrapper {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            font-size: 1.5rem;
+            border-radius: 50%;
+            font-size: 1.6rem;
             margin-bottom: 1.25rem;
         }
 
         .icon-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
         .icon-green { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
         .icon-purple { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
+        .icon-orange { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
+        .icon-red { background: rgba(239, 68, 68, 0.2); color: #f87171; }
 
-        /* 3. Decorative Track at bottom */
+        /* Text Shadow to ensure content stays visible over images */
+        .text-glow {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
         .track-line {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 4px;
             background: repeating-linear-gradient(90deg, #facc15, #facc15 30px, transparent 30px, transparent 60px);
-            animation: backgroundScroll 10s linear infinite;
-            opacity: 0.5;
+            opacity: 0.3;
         }
     </style>
 </head>
 <body>
 
-<div class="main-wrapper page-home min-h-screen py-12">
-  <div class="max-w-6xl mx-auto p-6">
+<div class="min-h-screen py-16 px-6">
+  <div class="max-w-7xl mx-auto">
     
-    <div class="text-center mb-16">
-      <h1 class="text-6xl font-black text-white mb-4 tracking-tighter drop-shadow-2xl">
+    <div class="text-center mb-12">
+      <h1 class="text-6xl font-black mb-4 tracking-tight text-glow">
         Railway Portal 🚂
       </h1>
-      <p class="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light">
-        Select a module below to manage train schedules, passenger bookings, or workforce data.
+      <p class="text-xl text-gray-200 max-w-2xl mx-auto font-medium text-glow">
+        Administrative Control Center: Manage schedules, users, and logistics.
       </p>
     </div>
 
     <div class="dashboard-grid">
 
-      <a href="/trains" data-link class="feature-card group">
+      <a href="/trains" class="feature-card">
         <div class="icon-wrapper icon-blue">
           <i class="fa-solid fa-train"></i>
         </div>
-        <h3 class="text-2xl font-bold mb-2">Trains</h3>
-        <p class="text-gray-300 leading-snug">
-          Manage locomotives, track routes, and update arrival/departure timings.
-        </p>
+        <h3 class="text-2xl font-bold mb-2 text-glow">Trains</h3>
+        <p class="text-gray-300 text-sm">Update locomotives and track real-time routes.</p>
       </a>
 
-      <a href="/bookings" data-link class="feature-card group">
+      <a href="/bookings" class="feature-card">
         <div class="icon-wrapper icon-green">
           <i class="fa-solid fa-ticket"></i>
         </div>
-        <h3 class="text-2xl font-bold mb-2">Bookings</h3>
-        <p class="text-gray-300 leading-snug">
-          Monitor ticket reservations, assign seats, and view passenger details.
-        </p>
+        <h3 class="text-2xl font-bold mb-2 text-glow">Bookings</h3>
+        <p class="text-gray-300 text-sm">Monitor ticket sales and passenger lists.</p>
       </a>
 
-      <a href="/staff" data-link class="feature-card group">
+      <a href="/staff" class="feature-card">
         <div class="icon-wrapper icon-purple">
           <i class="fa-solid fa-users-gear"></i>
         </div>
-        <h3 class="text-2xl font-bold mb-2">Staff</h3>
-        <p class="text-gray-300 leading-snug">
-          Manage station crew, update roles, and maintain staff contact records.
-        </p>
+        <h3 class="text-2xl font-bold mb-2 text-glow">Staff</h3>
+        <p class="text-gray-300 text-sm">Manage crew assignments and payroll.</p>
+      </a>
+
+      <a href="/reservations" class="feature-card">
+        <div class="icon-wrapper icon-orange">
+          <i class="fa-solid fa-chair"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-glow">Reservations</h3>
+        <p class="text-gray-300 text-sm">Handle seat assignments and cancellations.</p>
+      </a>
+
+      <a href="/reports" class="feature-card">
+        <div class="icon-wrapper icon-red">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-glow">Reports</h3>
+        <p class="text-gray-300 text-sm">Analyze revenue and operational performance.</p>
       </a>
 
     </div>
 
-    <div class="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-6">
-        <a href="/api/trains" target="_blank" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-bold text-gray-300 transition tracking-widest uppercase">
-            <i class="fa-solid fa-link mr-1"></i> Train API
-        </a>
-        <a href="/api/bookings" target="_blank" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-bold text-gray-300 transition tracking-widest uppercase">
-            <i class="fa-solid fa-link mr-1"></i> Booking API
-        </a>
-        <a href="/api/staff" target="_blank" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-bold text-gray-300 transition tracking-widest uppercase">
-            <i class="fa-solid fa-link mr-1"></i> Staff API
-        </a>
-        
-        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <a href="/reservations" data-link
-               class="px-4 py-3 text-center bg-blue-600/20 border border-blue-500/30 text-blue-200 rounded-xl hover:bg-blue-600/40 transition flex items-center justify-center gap-2">
-               <i class="fa-solid fa-link"></i> Reservations App (UI)
-            </a>
-
-            <a href="/api/reservations" target="_blank"
-               class="px-4 py-3 text-center bg-green-600/20 border border-green-500/30 text-green-200 rounded-xl hover:bg-green-600/40 transition flex items-center justify-center gap-2">
-               <i class="fa-solid fa-code"></i> Enrollment API (JSON)
-            </a>
-
-            <a href="/reports/reservations" data-link
-               class="px-4 py-3 text-center bg-purple-600/20 border border-purple-500/30 text-purple-200 rounded-xl hover:bg-purple-600/40 transition flex items-center justify-center gap-2">
-               <i class="fa-solid fa-chart-column"></i> Reservations Report (JOIN)
-            </a>
-        </div>
+    <div class="mt-20 flex flex-wrap justify-center gap-4 opacity-80">
+        <button class="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 transition">
+            System Logs
+        </button>
+        <button class="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 transition">
+            Database API
+        </button>
     </div>
 
   </div>
 </div>
 
 <div class="track-line"></div>
+
+</body>
+</html>
 
 </body>
 </html>
