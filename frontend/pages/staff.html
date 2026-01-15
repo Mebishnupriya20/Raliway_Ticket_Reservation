@@ -1,64 +1,96 @@
-<div class="max-w-4xl mx-auto p-6 main-wrapper page-staff">
+<div class="staff-page-wrapper min-h-screen py-12 px-4">
+    <div class="max-w-4xl mx-auto main-wrapper page-staff">
 
-    <div class="page-header">
-        <div>
-            <h1 class="text-2xl font-bold text-gray-800">Staff Management</h1>
-            <p class="text-sm text-gray-500 mt-1">Manage employee records and roles</p>
-        </div>
-        <a href="/" data-link class="text-sm font-medium text-blue-600 hover:text-blue-800 transition flex items-center gap-1">
-            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
-        </a>
-    </div>
-
-    <div class="form-card mb-8">
-        <h2 class="font-semibold mb-4 text-lg text-gray-800 border-b pb-2">Add New Staff</h2>
-        <form id="StaffForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" id="name" placeholder="Staff Name" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-            
-            <input type="text" id="role" placeholder="Role / Position" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-            
-            <input type="text" id="contact" placeholder="Contact Number" required class="w-full md:col-span-2 border border-gray-300 rounded-lg px-4 py-2.5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-
-            <div class="md:col-span-2 flex space-x-3 mt-2">
-                <button type="submit" id="submitBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition shadow-sm">
-                    <i class="fa-solid fa-user-plus mr-2"></i> Add Staff
-                </button>
-
-                <button type="button" id="cancelBtn" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 rounded-lg hidden transition">
-                    Cancel
-                </button>
+        <div class="page-header flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-black text-white tracking-tight drop-shadow-md">Staff Management</h1>
+                <p class="text-sm text-gray-200 mt-1 font-medium">Manage employee records and roles</p>
             </div>
-        </form>
-    </div>
-
-    <div class="table-card">
-        <h2 class="font-semibold mb-4 text-lg text-gray-800">All Staff Members</h2>
-
-        <div id="loadingSpinner" class="text-center py-8">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-            <p class="text-gray-500 text-sm mt-2">Loading staff records...</p>
+            <a href="/" data-link class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-bold text-white transition flex items-center gap-2 border border-white/20">
+                <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+            </a>
         </div>
 
-        <div id="StaffTableContainer" class="hidden overflow-x-auto rounded-lg border border-gray-200">
-            <table class="min-w-full text-left">
-                <thead>
-                    <tr>
-                        <th class="px-4 py-3 bg-gray-50 font-semibold text-gray-600">ID</th>
-                        <th class="px-4 py-3 bg-gray-50 font-semibold text-gray-600">Name</th>
-                        <th class="px-4 py-3 bg-gray-50 font-semibold text-gray-600">Role</th>
-                        <th class="px-4 py-3 bg-gray-50 font-semibold text-gray-600">Contact</th>
-                        <th class="px-4 py-3 bg-gray-50 font-semibold text-gray-600 text-right">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="StaffTableBody" class="divide-y divide-gray-100">
-                    </tbody>
-            </table>
+        <div class="form-card mb-8 p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md">
+            <h2 class="font-bold mb-4 text-lg text-white border-b border-white/10 pb-2">Add New Staff</h2>
+            <form id="StaffForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" id="name" placeholder="Staff Name" required 
+                    class="w-full bg-black/20 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
+                
+                <input type="text" id="role" placeholder="Role / Position" required 
+                    class="w-full bg-black/20 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
+                
+                <input type="text" id="contact" placeholder="Contact Number" required 
+                    class="w-full md:col-span-2 bg-black/20 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
 
-            <p id="noStaffs" class="text-center text-gray-500 py-8 hidden">
-                No staff found. Add one using the form above.
-            </p>
+                <div class="md:col-span-2 flex space-x-3 mt-2">
+                    <button type="submit" id="submitBtn" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-lg transition shadow-lg">
+                        <i class="fa-solid fa-user-plus mr-2"></i> Add Staff
+                    </button>
+
+                    <button type="button" id="cancelBtn" class="flex-1 bg-white/10 hover:bg-white/20 text-white font-medium py-2.5 rounded-lg hidden transition border border-white/10">
+                        Cancel
+                    </button>
+                </div>
+            </form>
         </div>
-    </div>
 
-    <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
+        <div class="table-card p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md">
+            <h2 class="font-bold mb-4 text-lg text-white">All Staff Members</h2>
+
+            <div id="loadingSpinner" class="text-center py-8">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400 mx-auto"></div>
+                <p class="text-gray-300 text-sm mt-2">Loading staff records...</p>
+            </div>
+
+            <div id="StaffTableContainer" class="hidden overflow-x-auto rounded-xl border border-white/10">
+                <table class="min-w-full text-left">
+                    <thead>
+                        <tr class="bg-white/10">
+                            <th class="px-4 py-3 font-bold text-blue-300">ID</th>
+                            <th class="px-4 py-3 font-bold text-blue-300">Name</th>
+                            <th class="px-4 py-3 font-bold text-blue-300">Role</th>
+                            <th class="px-4 py-3 font-bold text-blue-300">Contact</th>
+                            <th class="px-4 py-3 font-bold text-blue-300 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="StaffTableBody" class="divide-y divide-white/5 text-gray-100">
+                        </tbody>
+                </table>
+
+                <p id="noStaffs" class="text-center text-gray-400 py-8 hidden font-medium">
+                    No staff found. Add one using the form above.
+                </p>
+            </div>
+        </div>
+
+        <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
+    </div>
 </div>
+
+<style>
+    .staff-page-wrapper {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+                          url('https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    /* Keep the inputs dark but visible */
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    /* Style for buttons inside the table */
+    .btn-action {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+
+    .btn-action:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+</style>

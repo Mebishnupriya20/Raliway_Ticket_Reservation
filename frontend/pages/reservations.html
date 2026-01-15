@@ -1,59 +1,95 @@
-<div class="max-w-3xl mx-auto p-6">
+<div class="reservation-page-wrapper min-h-screen py-12 px-4">
+  <div class="max-w-4xl mx-auto main-wrapper page-reservations">
 
-  <div class="flex items-center justify-between mb-6">
-    <h1 class="text-3xl font-bold">Reservations</h1>
-    <a href="/home" data-link class="text-sm text-blue-600 underline">← Back to Home</a>
-  </div>
-
-  <div class="bg-white p-5 rounded shadow mb-8">
-    <h2 class="font-semibold mb-3 text-lg">Create reservation</h2>
-
-    <form id="reservationForm" class="space-y-3">
-      <select id="train_id" required class="w-full border rounded px-3 py-2">
-        <option value="">Select trains</option>
-      </select>
-
-      <select id="booking_id" required class="w-full border rounded px-3 py-2">
-        <option value="">Select Bookings</option>
-      </select>
-
-      <button type="submit" id="submitBtn"
-        class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">
-        reserved Train
-      </button>
-    </form>
-
-    <p class="text-xs text-gray-500 mt-3">
-      This table stores only IDs. Later we will use JOIN to show names.
-    </p>
-  </div>
-
-  <div class="bg-white p-5 rounded shadow">
-    <h2 class="font-semibold mb-4 text-lg">All Reservations</h2>
-
-    <div id="loadingSpinner" class="text-center py-4">
-      <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500 mx-auto"></div>
+    <div class="page-header flex justify-between items-center mb-8">
+      <div>
+        <h1 class="text-3xl font-black text-white tracking-tight drop-shadow-md">Reservations</h1>
+        <p class="text-sm text-gray-200 mt-1 font-medium">Link train schedules with passenger bookings</p>
+      </div>
+      <a href="/" data-link class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-bold text-white transition flex items-center gap-2 border border-white/20">
+        <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+      </a>
     </div>
 
-    <div id="reservationsTableContainer" class="hidden overflow-x-auto">
-      <table class="min-w-full text-left border">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="px-3 py-2">ID</th>
-            <th class="px-3 py-2">Train ID</th>
-            <th class="px-3 py-2">Booking ID</th>
-            <th class="px-3 py-2">Rserved On</th>
-            <th class="px-3 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="reservationsTableBody"></tbody>
-      </table>
+    <div class="form-card mb-8 p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md">
+      <h2 class="font-bold mb-4 text-lg text-white border-b border-white/10 pb-2">Create Reservation</h2>
 
-      <p id="noReservations" class="text-center text-gray-500 mt-3 hidden">
-        No reservations found. Create one using the form above.
+      <form id="reservationForm" class="space-y-4">
+        <div>
+          <label class="text-xs text-blue-300 font-bold mb-1 uppercase tracking-wider block">Assign Train</label>
+          <select id="train_id" required class="w-full bg-black/30 border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-400 transition cursor-pointer">
+            <option value="" class="bg-gray-900">Select Train</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-xs text-blue-300 font-bold mb-1 uppercase tracking-wider block">Assign Booking</label>
+          <select id="booking_id" required class="w-full bg-black/30 border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-400 transition cursor-pointer">
+            <option value="" class="bg-gray-900">Select Booking</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submitBtn"
+          class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition shadow-lg mt-2">
+          <i class="fa-solid fa-link mr-2"></i> Reserved Train
+        </button>
+      </form>
+
+      <p class="text-[10px] text-gray-400 mt-4 uppercase tracking-widest text-center">
+        Note: This table links IDs. Use Join Reports for detailed view.
       </p>
     </div>
-  </div>
 
-  <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
+    <div class="table-card p-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md">
+      <h2 class="font-bold mb-4 text-lg text-white">Current Reservation Links</h2>
+
+      <div id="loadingSpinner" class="text-center py-8">
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-400 mx-auto"></div>
+        <p class="text-gray-300 text-sm mt-2">Connecting data...</p>
+      </div>
+
+      <div id="reservationsTableContainer" class="hidden overflow-x-auto rounded-xl border border-white/10">
+        <table class="min-w-full text-left">
+          <thead>
+            <tr class="bg-white/10">
+              <th class="px-4 py-3 font-bold text-blue-300">ID</th>
+              <th class="px-4 py-3 font-bold text-blue-300">Train ID</th>
+              <th class="px-4 py-3 font-bold text-blue-300">Booking ID</th>
+              <th class="px-4 py-3 font-bold text-blue-300">Reserved On</th>
+              <th class="px-4 py-3 font-bold text-blue-300 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reservationsTableBody" class="divide-y divide-white/5 text-gray-100">
+            </tbody>
+        </table>
+
+        <p id="noReservations" class="text-center text-gray-400 py-8 hidden font-medium">
+          No reservations found. Create one using the form above.
+        </p>
+      </div>
+    </div>
+
+    <div id="alertContainer" class="fixed top-4 right-4 space-y-2 z-50"></div>
+  </div>
 </div>
+
+<style>
+  .reservation-page-wrapper {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+                      url('https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Style the dropdown options for readability */
+  select option {
+    background-color: #1a202c; /* Dark tailwind gray */
+    color: white;
+  }
+
+  /* Table Hover Effect */
+  #reservationsTableBody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+</style>
