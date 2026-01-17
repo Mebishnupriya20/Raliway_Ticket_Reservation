@@ -1,9 +1,9 @@
 import { 
-    apiGetAll, 
-    apiGetOne, 
-    apiCreate, 
-    apiUpdate, 
-    apiDelete 
+    apiGetAllStaff, 
+    apiGetOneStaff, 
+    apiCreateStaff, 
+    apiUpdateStaff, 
+    apiDeleteStaff 
 } from "../services/staffService.js";
 
 import { showAlert } from "../components/Alert.js";
@@ -65,7 +65,7 @@ export async function loadStaffs() {
   table.style.display = "none";
 
   // Asynchronously fetch all Staff records from the backend API
-  const staffs = await apiGetAll();
+  const staffs = await apiGetAllStaff();
 
   // Store the retrieved Staff array in the application's global state
   setState({ staffs });
@@ -90,7 +90,7 @@ export async function createNewStaff(data) {
 
 // Load a Staff into the form for editing
 export async function editStaff(id) {
-  const staff = await apiGetOne(id);
+  const staff = await apiGetOneStaff(id);
 
   setState({ editingId: id });
   fillStaffForm(staff);
@@ -100,7 +100,7 @@ export async function editStaff(id) {
 
 // Update an existing Staff
 export async function updateStaff(id, data) {
-  const res = await apiUpdate(id, data);
+  const res = await apiUpdateStaff(id, data);
   if (res.ok) {
     showAlert("Updated!");
     resetStaffForm();
@@ -113,7 +113,7 @@ export async function updateStaff(id, data) {
 export async function deleteStaffAction(id) {
   if (!confirm("Delete this staff?")) return;
 
-  const res = await apiDelete(id);
+  const res = await apiDeleteStaff(id);
  	if (res.ok) {
     showAlert("Deleted!");
     loadStaffs();
