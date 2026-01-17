@@ -17,22 +17,22 @@
                 <h1 class="text-3xl font-black text-slate-900 tracking-tight drop-shadow-sm">Staff Management</h1>
                 <p class="text-sm text-slate-600 mt-1 font-medium">Manage employee records and roles</p>
             </div>
-            <a href="/" data-link class="px-4 py-2 rounded-lg bg-white/40 hover:bg-white/60 text-sm font-bold text-slate-700 transition flex items-center gap-2 border border-slate-200 shadow-sm">
+            <a href="/" data-link class="px-4 py-2 rounded-lg bg-white/60 hover:bg-white/80 text-sm font-bold text-slate-700 transition flex items-center gap-2 border border-slate-200 shadow-sm">
                 <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
             </a>
         </div>
 
-        <div class="form-card mb-8 p-6 rounded-2xl border border-white/80 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-900/5">
-            <h2 class="font-bold mb-4 text-lg text-slate-800 border-b border-slate-200/50 pb-2">Add New Staff</h2>
+        <div class="form-card mb-8 p-6 rounded-2xl border border-white bg-white/40 backdrop-blur-md shadow-xl shadow-blue-900/5">
+            <h2 class="font-bold mb-4 text-lg text-slate-800 border-b border-blue-200/30 pb-2">Add New Staff</h2>
             <form id="StaffForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input type="text" id="name" placeholder="Staff Name" required 
-                    class="w-full bg-white/50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
+                    class="w-full bg-white/60 border border-blue-100 rounded-lg px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
                 
                 <input type="text" id="role" placeholder="Role / Position" required 
-                    class="w-full bg-white/50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
+                    class="w-full bg-white/60 border border-blue-100 rounded-lg px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
                 
                 <input type="text" id="contact" placeholder="Contact Number" required 
-                    class="w-full md:col-span-2 bg-white/50 border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
+                    class="w-full md:col-span-2 bg-white/60 border border-blue-100 rounded-lg px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition">
 
                 <div class="md:col-span-2 flex space-x-3 mt-2">
                     <button type="submit" id="submitBtn" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 rounded-lg transition shadow-lg">
@@ -46,7 +46,7 @@
             </form>
         </div>
 
-        <div class="table-card p-6 rounded-2xl border border-white/80 bg-white/40 backdrop-blur-md shadow-lg shadow-blue-900/5">
+        <div class="table-card p-6 rounded-2xl border border-white bg-white/40 backdrop-blur-md shadow-xl shadow-blue-900/5">
             <h2 class="font-bold mb-4 text-lg text-slate-800">All Staff Members</h2>
 
             <div id="loadingSpinner" class="text-center py-8">
@@ -54,18 +54,18 @@
                 <p class="text-slate-500 text-sm mt-2">Loading staff records...</p>
             </div>
 
-            <div id="StaffTableContainer" class="hidden overflow-x-auto rounded-xl border border-slate-200 bg-white/30">
+            <div id="StaffTableContainer" class="hidden overflow-x-auto rounded-xl border border-blue-100 bg-white/50">
                 <table class="min-w-full text-left">
                     <thead>
-                        <tr class="bg-slate-50/50">
-                            <th class="px-4 py-3 font-bold text-blue-600">ID</th>
-                            <th class="px-4 py-3 font-bold text-blue-600">Name</th>
-                            <th class="px-4 py-3 font-bold text-blue-600">Role</th>
-                            <th class="px-4 py-3 font-bold text-blue-600">Contact</th>
-                            <th class="px-4 py-3 font-bold text-blue-600 text-right">Actions</th>
+                        <tr class="bg-blue-50/50">
+                            <th class="px-4 py-3 font-bold text-blue-700">ID</th>
+                            <th class="px-4 py-3 font-bold text-blue-700">Name</th>
+                            <th class="px-4 py-3 font-bold text-blue-700">Role</th>
+                            <th class="px-4 py-3 font-bold text-blue-700">Contact</th>
+                            <th class="px-4 py-3 font-bold text-blue-700 text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="StaffTableBody" class="divide-y divide-slate-100 text-slate-700">
+                    <tbody id="StaffTableBody" class="divide-y divide-blue-50 text-slate-700">
                         </tbody>
                 </table>
 
@@ -80,29 +80,22 @@
 </div>
 
 <style>
-    /* Dynamic Light Blue Theme */
+    /* 1. Global Background: Removed all Unsplash images */
     .staff-page-wrapper {
-        background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
+        background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
         background-attachment: fixed;
     }
 
+    /* 2. Scenic Elements */
     .scenic-bg {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 60vh;
-        z-index: 0;
-        pointer-events: none;
+        bottom: 0; left: 0; width: 100%; height: 60vh;
+        z-index: 0; pointer-events: none;
     }
 
     .hill {
-        position: absolute;
-        bottom: 0;
-        width: 200%;
-        height: 100%;
-        background-repeat: repeat-x;
-        opacity: 0.5;
+        position: absolute; bottom: 0; width: 200%; height: 100%;
+        background-repeat: repeat-x; opacity: 0.6;
     }
 
     .hill-1 {
@@ -112,65 +105,58 @@
     }
 
     .bullet-train-container {
-        position: absolute;
-        bottom: 120px;
-        width: 100%;
-        height: 2px;
-        background: rgba(15, 23, 42, 0.05);
+        position: absolute; bottom: 120px; width: 100%; height: 2px;
+        background: rgba(3, 105, 161, 0.1);
     }
 
     .bullet-train {
-        position: absolute;
-        top: -15px;
-        left: -500px;
-        display: flex;
-        align-items: center;
+        position: absolute; top: -15px; left: -500px;
+        display: flex; align-items: center;
         animation: highSpeedPass 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     }
 
     .train-head {
-        width: 70px;
-        height: 20px;
-        background: #0369a1;
+        width: 70px; height: 20px;
+        background: #0284c7;
         border-radius: 50% 12px 3px 3px;
     }
 
     .speed-lines {
-        width: 120px;
-        height: 15px;
-        background: linear-gradient(90deg, transparent, rgba(3, 105, 161, 0.3));
+        width: 120px; height: 15px;
+        background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.2));
         margin-left: -5px;
     }
 
-    @keyframes moveHill {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
-    }
+    @keyframes moveHill { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes highSpeedPass { 0% { transform: translateX(-100%); } 30%, 100% { transform: translateX(200vw); } }
 
-    @keyframes highSpeedPass {
-        0% { transform: translateX(-100%); }
-        30%, 100% { transform: translateX(200vw); }
+    /* 3. Card & Table Styling Refinements */
+    .form-card, .table-card {
+        background-color: rgba(255, 255, 255, 0.45) !important; /* Semi-transparent white */
+        border: 1px solid rgba(255, 255, 255, 0.8) !important;
     }
 
     input::placeholder {
-        color: rgba(15, 23, 42, 0.4) !important;
+        color: #94a3b8 !important;
     }
 
-    /* Table body styling */
     #StaffTableBody tr:hover {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(241, 245, 249, 0.8);
     }
 
     .btn-action {
-        background: rgba(15, 23, 42, 0.05);
-        padding: 4px 8px;
-        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px 10px;
+        border-radius: 8px;
         transition: 0.2s;
-        border: 1px solid rgba(15, 23, 42, 0.1);
+        border: 1px solid #e2e8f0;
+        color: #475569;
     }
 
     .btn-action:hover {
-        background: rgba(15, 23, 42, 0.1);
-        transform: scale(1.05);
+        background: #f8fafc;
+        border-color: #3b82f6;
+        color: #3b82f6;
+        transform: translateY(-1px);
     }
 </style>
