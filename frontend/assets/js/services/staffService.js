@@ -7,20 +7,20 @@ async function safeJson(res) {
   try { return await res.json(); } catch { return null; }
 }
 // Fetch all staffs
-export async function apiGetAll() {
+export async function apiGetAllStaff() {
   const res = await fetch(API_URL);
   if (!res.ok) return [];
   return safeJson(res);
 }
 // Fetch one staff by ID
-export async function apiGetOne(id) {
+export async function apiGetOneStaff(id) {
   const res = await fetch(`${API_URL}/${id}`);
   if (!res.ok) return null;
   return safeJson(res);
 }
 
 // Create a new staff
-export function apiCreate(data) {
+export function apiCreateStaff(data) {
   return fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -29,7 +29,7 @@ export function apiCreate(data) {
 }
 
 // Update a staff
-export function apiUpdate(id, data) {
+export function apiUpdateStaff(id, data) {
   return fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -38,6 +38,6 @@ export function apiUpdate(id, data) {
 }
 
 // Delete a staff
-export function apiDelete(id) {
+export function apiDeleteStaff(id) {
   return fetch(`${API_URL}/${id}`, { method: "DELETE" });
 }

@@ -5,6 +5,9 @@ export function fillReservationDropdowns(trains, bookings, staff) {
   const bookingSel = $("booking_id");
   const staffSel = $("staff_id");
 
+  // Safety guard
+  if (!trainSel || !bookingSel || !staffSel) return;
+
   trainSel.innerHTML = `<option value="">Select train</option>`;
   bookingSel.innerHTML = `<option value="">Select booking</option>`;
   staffSel.innerHTML = `<option value="">Select staff</option>`;
@@ -12,7 +15,7 @@ export function fillReservationDropdowns(trains, bookings, staff) {
   (trains || []).forEach(t => {
     const opt = document.createElement("option");
     opt.value = t.id;
-    opt.textContent = `${t.name} (ID: ${t.id})`;
+    opt.textContent = `${t.train_name ?? t.name} (ID: ${t.id})`;
     trainSel.appendChild(opt);
   });
 
@@ -23,10 +26,10 @@ export function fillReservationDropdowns(trains, bookings, staff) {
     bookingSel.appendChild(opt);
   });
 
-   (staff || []).forEach(b => {
+  (staff || []).forEach(s => {
     const opt = document.createElement("option");
     opt.value = s.id;
     opt.textContent = `${s.name} (ID: ${s.id})`;
-    bookingSel.appendChild(opt);
+    staffSel.appendChild(opt);
   });
 }
