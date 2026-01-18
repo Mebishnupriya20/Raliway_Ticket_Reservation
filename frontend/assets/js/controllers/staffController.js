@@ -49,16 +49,16 @@ export async function loadStaffs() {
 
   if (!spinner || !table) return;
 
-  spinner.classList.remove("hidden");
-  table.classList.add("hidden");
+  spinner.style.display = "none";
+  table.style.display = "block";
 
 
   const staffs = await apiGetAllStaff();
   setState({ staffs });
   renderStaffTable(staffs);
 
-  spinner.classList.remove("hidden");
-  table.classList.add("hidden");
+  spinner.style.display = "none";
+  table.style.display = "block";
 
 }
 
