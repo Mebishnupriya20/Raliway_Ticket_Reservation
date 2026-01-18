@@ -7,6 +7,9 @@ export function renderStaffTable(staffs) {
   // Get references to the table body where rows will be inserted and the 'no students' message
   const body = $("StaffTableBody");
   const empty = $("noStaffs");
+  $("loadingSpinner").classList.add("hidden");
+  $("StaffTableContainer").classList.remove("hidden");
+
 
   // Clear any existing rows from the table body before rendering new data
   body.innerHTML = "";
