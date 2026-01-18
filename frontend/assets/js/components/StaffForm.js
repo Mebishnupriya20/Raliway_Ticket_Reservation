@@ -1,7 +1,7 @@
 import { $ } from "../utils/dom.js";
  
 export function resetStaffForm() {
-   $("staffForm").reset();              
+   $("StaffForm").reset();              
    $("cancelBtn").classList.add("hidden");
    $("submitBtn").textContent = "Add Staff";
 }

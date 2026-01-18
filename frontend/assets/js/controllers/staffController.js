@@ -15,7 +15,7 @@ import { $ } from "../utils/dom.js";
 export function initStaffController() {
   loadStaffs();
 
-  const form = $("staffForm");
+  const form = $("StaffForm");
   const cancelBtn = $("cancelBtn");
 
   if (form) {
