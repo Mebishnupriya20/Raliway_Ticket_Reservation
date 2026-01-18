@@ -1,11 +1,10 @@
-
 import { $ } from "../utils/dom.js";
  
 export function resetStaffForm() {
-   $("StaffForm").reset();
+   $("staffForm").reset();              
    $("cancelBtn").classList.add("hidden");
    $("submitBtn").textContent = "Add Staff";
- }
+}
  
 export function fillStaffForm(staff) {
    $("name").value = staff.name;
@@ -13,4 +12,4 @@ export function fillStaffForm(staff) {
    $("contact").value = staff.contact;
    $("cancelBtn").classList.remove("hidden");
    $("submitBtn").textContent = "Update Menu";
- }
+}
