@@ -1,97 +1,120 @@
-import {
-  apiGetAllStaff,
-  apiGetOneStaff,
-  apiCreateStaff,
-  apiUpdateStaff,
-  apiDeleteStaff
+import { 
+    apiGetAllStaff, 
+    apiGetOneStaff, 
+    apiCreateStaff, 
+    apiUpdateStaff, 
+    apiDeleteStaff 
 } from "../services/staffService.js";
 
 import { showAlert } from "../components/Alert.js";
 import { renderStaffTable } from "../components/StaffTable.js";
-import { resetStaffForm, fillStaffForm } from "../components/StaffForm.js";
-import { setState, getState } from "../state/store.js";
-import { $ } from "../utils/dom.js";
+import { resetForm, StaffForm } from "../components/StaffForm.js";
 
+import { setState, getState } from "../state/store.js";
+import { $, createElement } from "../utils/dom.js";
+
+// Setup event listeners and load initial data
+// Initialize the main logic and set up all necessary event listeners
 export function initStaffController() {
+  // Start by fetching and displaying all Staffd ata immediately upon load
   loadStaffs();
 
-  const form = $("StaffForm");
-  const cancelBtn = $("cancelBtn");
+  // --- Handle Form Submissions ---
 
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  // Attach a listener to the 'submit' event of the Staff input form
+  $("StaffForm").addEventListener("submit", async (e) => {
+    // Prevent the browser's default form submission behavior (page refresh)
+    e.preventDefault();
 
-      const data = {
-        name: $("name").value.trim(),
-        role: $("role").value.trim(),
-        contact: $("contact").value.trim()
-      };
+    // Collect data from the input fields using the custom '$' selector
+    const data = {
+      name: $("name").value.trim(),   // Get name value, remove whitespace
+      role: $("role").value.trim(), // Get email value
+      contact: $("contact").value.trim(), // Get age value
+    };
 
-      const { editingId } = getState();
-      editingId
-        ? await updateStaff(editingId, data)
-        : await createNewStaff(data);
-    });
-  }
+    // Check the application state to see if we are currently editing an existing record
+    const { editingId } = getState();
 
-  if (cancelBtn) {
-    cancelBtn.addEventListener("click", () => {
-      setState({ editingId: null });
-      resetStaffForm();
-    });
-  }
+    // Use a ternary operator to decide which action to take:
+    editingId
+      ? await updateStaff(editingId, data) // If editingId exists, update the Staff
+      : await createNewStaff(data);        // Otherwise, create a new Staff
+  });
+
+  // --- Handle Cancel Button Click ---
+
+  // Attach a listener to the 'click' event of the cancel button
+  $("cancelBtn").addEventListener("click", () => {
+    // Clear the editing state (set the ID to null)
+    setState({ editingId: null });
+    // Clear all input fields in the form
+    resetForm();
+  });
 }
 
+
+// Fetch all staff data from the API and update the user interface
 export async function loadStaffs() {
+  // Get references to the loading spinner and the main data table elements
   const spinner = $("loadingSpinner");
-  const table = $("staffsTableContainer");
+  const table = $("StaffTableContainer");
 
-  if (!spinner || !table) return;
+  // Show the spinner and hide the table to indicate a loading state
+  spinner.style.display = "block";
+  table.style.display = "none";
 
-  spinner.style.display = "none";
-  table.style.display = "block";
-
-
+  // Asynchronously fetch all Staff records from the backend API
   const staffs = await apiGetAllStaff();
+
+  // Store the retrieved Staff array in the application's global state
   setState({ staffs });
+  // Render the fetched Staff data into the HTML table structure
   renderStaffTable(staffs);
 
+  // Hide the spinner and show the table now that the data is loaded and displayed
   spinner.style.display = "none";
   table.style.display = "block";
-
 }
 
+
+// Create a new Staff
 export async function createNewStaff(data) {
   const res = await apiCreateStaff(data);
   if (res.ok) {
     showAlert("Staff added!");
-    resetStaffForm();
+    resetForm();
     loadStaffs();
   }
 }
 
+// Load a Staff into the form for editing
 export async function editStaff(id) {
   const staff = await apiGetOneStaff(id);
+
   setState({ editingId: id });
-  fillStaffForm(staff);
+  StaffForm(staff);
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+// Update an existing Staff
 export async function updateStaff(id, data) {
   const res = await apiUpdateStaff(id, data);
   if (res.ok) {
     showAlert("Updated!");
-    resetStaffForm();
+    resetForm();
     setState({ editingId: null });
     loadStaffs();
   }
 }
 
+// Delete a Staff
 export async function deleteStaffAction(id) {
   if (!confirm("Delete this staff?")) return;
+
   const res = await apiDeleteStaff(id);
-  if (res.ok) {
+ 	if (res.ok) {
     showAlert("Deleted!");
     loadStaffs();
   }
