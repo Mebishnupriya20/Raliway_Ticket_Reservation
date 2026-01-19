@@ -1,17 +1,20 @@
-const BASE = window.ENV.API_BASE_URL.replace("/trains", "");
-const API_URL = `${BASE}/bookings`;
+const API_URL = "/api/bookings";
 
 async function safeJson(res) {
-  try { return await res.json(); } catch { return null; }
+  try {
+    return await res.json();
+  } catch (_) {
+    return null;
+  }
 }
 
-export async function apiGetAllBooking() {
+export async function apiGetAllBookings() {
   const res = await fetch(API_URL);
   if (!res.ok) return [];
   return safeJson(res);
 }
 
-export async function apiGetOneBooking(id) {
+export async function apiGetBooking(id) {
   const res = await fetch(`${API_URL}/${id}`);
   if (!res.ok) return null;
   return safeJson(res);
@@ -21,7 +24,7 @@ export function apiCreateBooking(data) {
   return fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
 }
 
@@ -29,10 +32,9 @@ export function apiUpdateBooking(id, data) {
   return fetch(`${API_URL}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
 }
 
-export function apiDeleteBooking(id) {
+export function apiDeleteCourse(id) {
   return fetch(`${API_URL}/${id}`, { method: "DELETE" });
-}
