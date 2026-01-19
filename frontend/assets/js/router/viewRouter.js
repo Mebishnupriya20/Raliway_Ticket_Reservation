@@ -1,8 +1,3 @@
-import { initTrainsController } from "../controllers/trainsController.js";
-import { initBookingsController } from "../controllers/bookingsController.js";
-import { initReservationController } from "../controllers/reservationsController.js";
-import { initReservationReportController } from "../controllers/reportController.js";
-import { initStaffController } from "../controllers/staffController.js";
 
 // LOAD A VIEW INTO TO LOAD #APP CONTRAINER
 async function loadView(path) {
@@ -18,14 +13,14 @@ async function loadView(path) {
   const html = await res.text();
   document.querySelector("#app").innerHTML = html;
 
-//   // If Mermaid is available, re-render diagrams after HTML injection
-//   if (window.mermaid) {
-//     try {
-//       await window.mermaid.run({ querySelector: "#app .mermaid" });
-//     } catch (e) {
-//       console.warn("Mermaid render skipped:", e);
-//     }
-//   }
+  // If Mermaid is available, re-render diagrams after HTML injection
+  if (window.mermaid) {
+    try {
+      await window.mermaid.run({ querySelector: "#app .mermaid" });
+    } catch (e) {
+      console.warn("Mermaid render skipped:", r);
+    }
+  }
 }
 
 export async function router() {
@@ -35,27 +30,65 @@ export async function router() {
 
   if (path === "/" || path === "/home") {
     await loadView("/frontend/pages/home.html");
-  } else if (path === "/trains") {
+    return;
+  } 
+  
+  if (path === "/trains") {
     await loadView("/frontend/pages/trains.html");
-    initTrainsController();
-  } else if (path === "/bookings") {
+    const mod = await import("../controllers/trainsController.js);
+    mod.initTrainsController();
+    return;
+  }
+  if (path === "/bookings") {
     await loadView("/frontend/pages/bookings.html");
-    initBookingsController();
-  } else if (path === "/reservations") {
+    const mod = await import("../controllers/bookingsController.js);
+    mod.initBookingsController();
+    return;
+  }
+  if (path === "/reservations") {
     await loadView("/frontend/pages/reservations.html");
-    initReservationController();
-  } else if (path === "/reports/reservations") {
+    const mod = await import("../controllers/reservationsController.js);
+    mod.initReservationController();
+    return;
+  }
+  if (path === "/reports/reservations") {
     await loadView("/frontend/pages/report_reservations.html");
-    initReservationReportController();
-  }else if (path === "/staff") {
+    const mod = await import("../controllers/reportController.js);
+    mod.initReservationReportController();
+    return;
+  }
+  if (path === "/staff") {
     await loadView("/frontend/pages/staff.html");
+    const mod = await import("../controllers/staffController.js);
     initStaffController();
-  }else if (path === "/events") {
+    return;
+  }
+  if (path === "/events") {
         await loadView("/frontend/pages/events.html");
-  }else {
+    return;
+  }
+  if (path === "/tickets") {
+    await loadView("/frontend/pages/tickets.html");
+    const mod = await import("../controllers/ticketsController.js");
+    mod.initProfilesController();
+    return;
+  }
+  if (path.startWith("/tickets/")) {
+    const idStr = path.split("/")[2]; // "/profiles/1" -> "1"
+    const id = Number(idStr);
+   if (!Number.isInteger(id)) {
+     await loadView("/frontend/pages/404.html");
+      return;
+   }
+     await loadView("/frontend/pages/ticket.html");
+    const mod = await import("../controllers/ticketController.js");
+    mod.initTicketController(id);
+    return;
+  } 
+  
     await loadView("/frontend/pages/404.html");
   }
-}
+
 
 export function initRouterEvents() {
   document.addEventListener("click", (e) => {
