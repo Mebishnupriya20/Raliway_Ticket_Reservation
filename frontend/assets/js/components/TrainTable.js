@@ -22,7 +22,7 @@ export function renderTrainTable(trains) {
   noTrains.style.display = "none";
 
   // Iterate over each student object in the provided array
-  trains.forEach(train => {
+  trains.forEach((train) => {
     // Create a new table row element for the current student
     const row = document.createElement("tr");
     row.className = "border-b"; // Add styling class (likely Tailwind CSS)
@@ -30,32 +30,32 @@ export function renderTrainTable(trains) {
     // Populate the row with dynamic HTML content using a template literal
     row.innerHTML = `
      <td class="px-3 py-2">${train.id}</td>
-      <td class="px-3 py-2">${train.train_name}</td>
+      <td class="px-3 py-2 font-medium text-gray-900">${train.train_name}</td>
       <td class="px-3 py-2">${train.source}</td>
       <td class="px-3 py-2">${train.destination}</td>
       <td class="px-3 py-2">${train.departure_time}</td>
       <td class="px-3 py-2">${train.arrival_time}</td>
       <td class="px-3 py-2 flex space-x-2">
-        <!-- Buttons are created with data attributes holding the student ID -->
-        <button class="bg-yellow-400 hover:bg-yellow-500 text-black py-1 px-3 rounded"
-          data-edit="${train.id}">Edit</button>
+        
+        <button 
+        class="bg-yellow-400 hover:bg-yellow-500 text-black py-1 px-3 rounded"
+          data-edit="${train.id}"
+          >
+          Edit
+          </button>
 
-        <button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded"
-          data-delete="${train.id}">Delete</button>
+        <button 
+        class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded"
+          data-delete="${train.id}"
+          >
+          Delete
+          </button>
       </td>
     `;
 
-    // --- Attach event listeners to the newly created buttons ---
-
-    // Find the 'Edit' button within this specific row and attach a click handler
-    // When clicked, call the editStudent function with the correct student ID
     row.querySelector("[data-edit]").onclick = () => editTrain(train.id);
-    
-    // Find the 'Delete' button within this specific row and attach a click handler
-    // When clicked, call the deleteStudentAction function with the correct student ID
     row.querySelector("[data-delete]").onclick = () => deleteTrainAction(train.id);
 
-    // Append the fully constructed row to the table body
     body.appendChild(row);
   });
 }

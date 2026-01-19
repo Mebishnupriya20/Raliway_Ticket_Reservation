@@ -5,15 +5,19 @@ export function renderBookingTable(bookings) {
   const body = $("bookingsTableBody");
   const empty = $("noBookings");
 
+  if (!body) return;
+
   body.innerHTML = "";
 
   if (!bookings || bookings.length === 0) {
-    empty.classList.remove("hidden");
+    if (noBookings) noBookings.classList.remove("hidden");
     return;
   }
-  empty.classList.add("hidden");
 
-  bookings.forEach(b => {
+  if (noBookings) noBookings.classList.add("hidden");
+  
+
+  bookings.forEach((booking) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td class="px-3 py-2 border">${b.id}</td>
@@ -23,18 +27,29 @@ export function renderBookingTable(bookings) {
       <td class="px-3 py-2 border">${b.total_seats ?? ""}</td>
       <td class="px-3 py-2 border">${b.payment ?? ""}</td>
       <td class="px-3 py-2 border">
-        <button class="text-blue-600 underline mr-3" data-edit="${b.id}">Edit</button>
-        <button class="text-red-600 underline" data-del="${b.id}">Delete</button>
+      <div class="flex gap-2">
+        <button 
+        type="button"
+        class="px-3 py-1 rounded border text-blue-600 hover:bg-blue-50"
+        data-edit
+        >
+         Edit
+         </button>
+         <button
+         type="button"
+         class="px-3 py-1 rounded borded text-red-600 hover:bg-red-50"
+         data-delete
+         >
+         Delete
+         </button>
+         </div>
+         </td>
       </td>
     `;
-    body.appendChild(tr);
-  });
 
-  body.querySelectorAll("[data-edit]").forEach(btn => {
-    btn.addEventListener("click", () => editBooking(Number(btn.dataset.edit)));
-  });
+      tr.querySelector("[data-edit]").addEventListener("click", () => editBooking(booking.id));
+    tr.querySelector("[data-delete]").addEventListener("click", () => deleteBookingAction(booking.id))
 
-  body.querySelectorAll("[data-del]").forEach(btn => {
-    btn.addEventListener("click", () => deleteBookingAction(Number(btn.dataset.del)));
+    body.appendChild(row);
   });
 }
