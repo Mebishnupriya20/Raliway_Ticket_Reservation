@@ -25,7 +25,7 @@ export function normalizeTicketRows(rows) {
   return (rows || []).map((r) => ({
     reservation_id: r.reservation_id ?? r.id ?? "",
     booking_passenger_name: r.booking_passenger_name ?? r.name ?? "",
-    coach_number: r.coach_number ?? "",
+    coach_numbe: r.coach_number ?? r.coach ?? "",
     booking_date: r.booking_date ?? "",
     booking_total_seats: r.booking_total_seats ?? "",
     booking_payment: r.booking_payment ?? "",
@@ -79,8 +79,8 @@ export function buildTicketPDFHtml(train, rows) {
           <tr>
             <td>${esc(r.reservation_id)}</td>
             <td>${esc(r.booking_passenger_name)}</td>
-            <td>${esc(r.coach_number)}</td>
-            <td>${esc(r.booking_date)}</td>
+            <td>${esc(r.booking_coach_number)}</td>
+            <td>${esc(r.r.booking_booking_coach_numbe)}</td>
             <td>${esc(r.booking_total_seats)}</td>
             <td>${esc(r.booking_payment)}</td>
             <td>${esc(r.staff_name)}</td>
