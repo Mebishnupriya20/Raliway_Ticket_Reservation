@@ -9,7 +9,7 @@ function esc(v) {
 }
 
 export const TICKET_CSV_COLUMNS = [
-  { key: "reserved_id", label: "Reserved ID" },
+  { key: "reservation_id", label: "Reservation ID" },
   { key: "booking_passenger_name", label: "PassengerName" },
   { key: "booking_coach_number", label: "Coach" },
   { key: "booking_date", label: "BookingDate" },
@@ -23,7 +23,7 @@ export const TICKET_CSV_COLUMNS = [
 export function normalizeTicketRows(rows) {
   // keep it consistent even if backend keys vary slightly
   return (rows || []).map((r) => ({
-    reserved_id: r.reserved_id ?? r.id ?? "",
+    reservation_id: r.reservation_id ?? r.id ?? "",
     booking_passenger_name: r.booking_passenger_name ?? r.name ?? "",
     booking_coach_number: r.booking_coach_number ?? "",
     booking_date: r.booking_date ?? "",
@@ -60,10 +60,10 @@ export function buildTicketPDFHtml(train, rows) {
       <thead>
         <tr>
           <th>Reserved ID</th>
-          <th>Passenger Name</th>
-          <th>coach</th>
-          <th>Date</th>
-          <th>TotalSeat</th>
+          <th>PassengerName </th>
+          <th>Coach</th>
+          <th>BookingDate</th>
+          <th>Total</th>
           <th>Payment</th>
           <th>Staff</th>
           <th>StaffRole</th>
@@ -77,7 +77,7 @@ export function buildTicketPDFHtml(train, rows) {
                 .map(
                   (r) => `
           <tr>
-            <td>${esc(r.reserved_id)}</td>
+            <td>${esc(r.reservation_id)}</td>
             <td>${esc(r.booking_passenger_name)}</td>
             <td>${esc(r.booking_coach_number)}</td>
             <td>${esc(r.booking_date)}</td>

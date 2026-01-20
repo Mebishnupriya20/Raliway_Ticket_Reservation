@@ -51,7 +51,7 @@ export function renderReservationsTable(rows) {
     const tr = document.createElement("tr");
     tr.className = "border-b";
     tr.innerHTML = `
-      <td class="px-3 py-2">${r.reserved_id ?? "-"}</td>
+      <td class="px-3 py-2">${r.reservation_id ?? "-"}</td>
       <td class="px-3 py-2">${r.booking_passenger_name ?? "-"}</td>
       <td class="px-3 py-2">${r.booking_coach_number?? r.coach ?? "-"}</td>
       <td class="px-3 py-2">${r.booking_date ?? "-"}</td>
