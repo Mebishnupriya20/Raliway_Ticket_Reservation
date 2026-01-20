@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-// frontend/assets/js/services/profilesService.js
+// frontend/assets/js/services/ticketsService.js
 =======
 // frontend/assets/js/services/ticketsService.js
 >>>>>>> c298013 (add searching and sorting)
