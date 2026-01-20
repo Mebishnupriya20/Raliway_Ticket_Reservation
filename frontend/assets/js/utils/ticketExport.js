@@ -12,9 +12,9 @@ export const TICKET_CSV_COLUMNS = [
   { key: "reservation_id", label: "Reservation ID" },
   { key: "booking_passenger_name", label: "PassengerName" },
   { key: "booking_coach_number", label: "Coach" },
-  { key: "booking_date", label: "BookingDate" },
-  { key: "total_seats", label: "Total" },
-  { key: "payment", label: "Payment" },
+  { key: "booking_booking_date", label: "BookingDate" },
+  { key: "booking_total_seats", label: "Total" },
+  { key: "booking_payment", label: "Payment" },
   { key: "staff_name", label: "Staff" },
   { key: "staff_role", label: "StaffRole" },
   { key: "reserved_on", label: "Reserved On" },
@@ -26,9 +26,9 @@ export function normalizeTicketRows(rows) {
     reservation_id: r.reservation_id ?? r.id ?? "",
     booking_passenger_name: r.booking_passenger_name ?? r.name ?? "",
     booking_coach_number: r.booking_coach_number ?? "",
-    booking_date: r.booking_date ?? "",
-    total_seats: r.total_seats ?? "",
-    payment: r.payment ?? "",
+    bbooking_booking_date: r.booking_booking_date ?? "",
+    booking_total_seats: r.booking_total_seats ?? "",
+    booking_payment: r.booking_payment ?? "",
     staff_name: r.staff_name ?? "",
    staff_role: r.staff_role ?? "",
    reserved_on: r.reserved_on ?? "",
@@ -80,11 +80,11 @@ export function buildTicketPDFHtml(train, rows) {
             <td>${esc(r.reservation_id)}</td>
             <td>${esc(r.booking_passenger_name)}</td>
             <td>${esc(r.booking_coach_number)}</td>
-            <td>${esc(r.booking_date)}</td>
-            <td>${esc(r.total_seats)}</td>
-            <td>${esc(r.payment)}</td>
-            <td>${esc(r.staffname)}</td>
-            <td>${esc(r.staffrole)}</td>
+            <td>${esc(r.booking_booking_date)}</td>
+            <td>${esc(r.booking_total_seats)}</td>
+            <td>${esc(r.booking_payment)}</td>
+            <td>${esc(r.staff_name)}</td>
+            <td>${esc(r.staff_role)}</td>
             <td>${esc(r.reserved_on)}</td>
           </tr>
         `
