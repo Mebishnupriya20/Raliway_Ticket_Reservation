@@ -25,8 +25,13 @@ def reservation_report():
             b.total_seats AS booking_total_seats,
             b.payment AS booking_payment,
                         
+             s.name AS staff_name,
+            s.role AS staff_role,
+            s.contact AS staff_contact      
+                        
          FROM reservations r
-        JOIN trains t ON t.id = r.train_id
+         JOIN trains t ON t.id = r.train_id
+         JOIN staff s ON s.id = r.staff_id                
          JOIN bookings b ON b.id = r.booking_id
         ORDER BY r.id DESC;
      """).fetchall()

@@ -1,7 +1,7 @@
 // frontend/assets/js/components/ticketsTable.js
 import { $ } from "../utils/dom.js";
 
-export function renderticketsTable(trains) {
+export function renderTicketsTable(trains) {
   const body = $("ticketsTableBody");
   const noTickets = $("noTickets");
 
