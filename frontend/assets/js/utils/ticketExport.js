@@ -26,7 +26,7 @@ export function normalizeTicketRows(rows) {
     reservation_id: r.reservation_id ?? r.id ?? "",
     booking_passenger_name: r.booking_passenger_name ?? r.name ?? "",
     booking_coach_number: r.booking_coach_number ?? "",
-    bbooking_booking_date: r.booking_booking_date ?? "",
+    booking_booking_date: r.booking_booking_date ?? "",
     booking_total_seats: r.booking_total_seats ?? "",
     booking_payment: r.booking_payment ?? "",
     staff_name: r.staff_name ?? "",
