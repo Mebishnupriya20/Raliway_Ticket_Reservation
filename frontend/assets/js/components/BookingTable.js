@@ -20,12 +20,12 @@ export function renderBookingTable(bookings) {
   bookings.forEach((booking) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td class="px-3 py-2 border">${b.id}</td>
-      <td class="px-3 py-2 border">${b.passenger_name ?? ""}</td>
-      <td class="px-3 py-2 border">${b.coach_number ?? ""}</td>
-      <td class="px-3 py-2 border">${b.booking_date ?? ""}</td>
-      <td class="px-3 py-2 border">${b.total_seats ?? ""}</td>
-      <td class="px-3 py-2 border">${b.payment ?? ""}</td>
+      <td class="px-3 py-2 border">${booking.id}</td>
+      <td class="px-3 py-2 border">${booking.passenger_name ?? ""}</td>
+      <td class="px-3 py-2 border">${booking.coach_number ?? ""}</td>
+      <td class="px-3 py-2 border">${booking.booking_date ?? ""}</td>
+      <td class="px-3 py-2 border">${booking.total_seats ?? ""}</td>
+      <td class="px-3 py-2 border">${booking.payment ?? ""}</td>
       <td class="px-3 py-2 border">
       <div class="flex gap-2">
         <button 
@@ -50,6 +50,6 @@ export function renderBookingTable(bookings) {
       tr.querySelector("[data-edit]").addEventListener("click", () => editBooking(booking.id));
     tr.querySelector("[data-delete]").addEventListener("click", () => deleteBookingAction(booking.id))
 
-    body.appendChild(row);
+    body.appendChild(tr);
   });
 }

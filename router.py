@@ -41,7 +41,7 @@ from core.static import serve_static
 from core.responses import send_404
 from core.middleware import add_cors_headers
 
-FRONTEND_ROUTES = {"/", "/home", "/trains", "/bookings", "/staff", "/reservations", "/reports/reservations" , "/events","/docs", "tickets"}
+FRONTEND_ROUTES = {"/", "/home", "/trains", "/bookings", "/staff", "/reservations", "/reports/reservations" , "/events","/docs", "/tickets"}
 
 def handle_ui_routes(handler, path):
 

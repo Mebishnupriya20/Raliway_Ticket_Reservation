@@ -73,7 +73,7 @@ export async function router() {
 
   
 
-    initStaffController();
+    mod.initStaffController();
     return;
   }
   if (path === "/events") {

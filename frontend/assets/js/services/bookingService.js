@@ -8,13 +8,13 @@ async function safeJson(res) {
   }
 }
 
-export async function apiGetAllBookings() {
+export async function apiGetAllBooking() {
   const res = await fetch(API_URL);
   if (!res.ok) return [];
   return safeJson(res);
 }
 
-export async function apiGetBooking(id) {
+export async function apiGetOneBooking(id) {
   const res = await fetch(`${API_URL}/${id}`);
   if (!res.ok) return null;
   return safeJson(res);
@@ -36,5 +36,6 @@ export function apiUpdateBooking(id, data) {
   });
 }
 
-export function apiDeleteCourse(id) {
+export function apiDeleteBooking(id) {
   return fetch(`${API_URL}/${id}`, { method: "DELETE" });
+}
