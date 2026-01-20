@@ -1,4 +1,4 @@
-// frontend/assets/js/controllers/profilesController.js
+// frontend/assets/js/controllers/ticketsController.js
 
 import { $ } from "../utils/dom.js";
 import { filterList, sortList } from "../utils/listTools.js";
@@ -18,6 +18,7 @@ const COLUMNS = [
 ];
 
 let allTrains = [];
+
 
 export function initTicketsController() {
   loadTickets();

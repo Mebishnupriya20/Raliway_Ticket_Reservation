@@ -1,4 +1,4 @@
-// frontend/assets/js/controllers/profileController.js
+// frontend/assets/js/controllers/ticketController.js
 
 import { $ } from "../utils/dom.js";
 import { exportToCSV, exportToPDF } from "../utils/exportTools.js";
@@ -37,7 +37,7 @@ export async function initTicketController(trainId) {
 
     // Wire export buttons (controller)
     $("ticketExportCsvBtn")?.addEventListener("click", () => {
-      const safeRows = normalizeTicketeRows(rows);
+      const safeRows = normalizeTicketRows(rows);
       const filename = `train_${train.id}_reservations.csv`;
       exportToCSV(filename, safeRows, TICKET_CSV_COLUMNS);
     });

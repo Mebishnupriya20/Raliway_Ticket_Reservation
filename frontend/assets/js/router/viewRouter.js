@@ -33,33 +33,55 @@ export async function router() {
     return;
   } 
   
+<<<<<<< HEAD
   if (path === "/trains") {
     await loadView("/frontend/pages/trains.html");
     const mod = await import("../controllers/trainsController.js);
+=======
+   if (path === "/trains") {
+    await loadView("/frontend/pages/trains.html");
+    const mod = await import("../controllers/trainsController.js");
+>>>>>>> c298013 (add searching and sorting)
     mod.initTrainsController();
     return;
   }
   if (path === "/bookings") {
     await loadView("/frontend/pages/bookings.html");
+<<<<<<< HEAD
     const mod = await import("../controllers/bookingsController.js);
+=======
+    const mod = await import("../controllers/bookingsController.js");
+>>>>>>> c298013 (add searching and sorting)
     mod.initBookingsController();
     return;
   }
   if (path === "/reservations") {
     await loadView("/frontend/pages/reservations.html");
+<<<<<<< HEAD
     const mod = await import("../controllers/reservationsController.js);
+=======
+    const mod = await import("../controllers/reservationsController.js");
+>>>>>>> c298013 (add searching and sorting)
     mod.initReservationController();
     return;
   }
   if (path === "/reports/reservations") {
     await loadView("/frontend/pages/report_reservations.html");
+<<<<<<< HEAD
     const mod = await import("../controllers/reportController.js);
+=======
+    const mod = await import("../controllers/reportController.js");
+>>>>>>> c298013 (add searching and sorting)
     mod.initReservationReportController();
     return;
   }
   if (path === "/staff") {
     await loadView("/frontend/pages/staff.html");
+<<<<<<< HEAD
     const mod = await import("../controllers/staffController.js);
+=======
+    const mod = await import("../controllers/staffController.js");
+>>>>>>> c298013 (add searching and sorting)
     initStaffController();
     return;
   }
@@ -70,11 +92,19 @@ export async function router() {
   if (path === "/tickets") {
     await loadView("/frontend/pages/tickets.html");
     const mod = await import("../controllers/ticketsController.js");
+<<<<<<< HEAD
     mod.initProfilesController();
     return;
   }
   if (path.startWith("/tickets/")) {
     const idStr = path.split("/")[2]; // "/profiles/1" -> "1"
+=======
+    mod.initTicketsController();
+    return;
+  }
+  if (path.startWith("/tickets/")) {
+    const idStr = path.split("/")[2]; // "/ts/1" -> "1"
+>>>>>>> c298013 (add searching and sorting)
     const id = Number(idStr);
    if (!Number.isInteger(id)) {
      await loadView("/frontend/pages/404.html");

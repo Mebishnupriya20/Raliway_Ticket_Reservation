@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // frontend/assets/js/services/profileService.js
+=======
+// frontend/assets/js/services/ticketService.js
+>>>>>>> c298013 (add searching and sorting)
 // Only data fetching / shaping (no DOM here)
 
 export async function fetchTrainById(trainId) {
@@ -13,4 +17,8 @@ export async function fetchReservationsForTrain(trainId) {
 
   const all = await res.json();
   return (all || []).filter((r) => Number(r.train_id) === Number(trainId));
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c298013 (add searching and sorting)

@@ -1,6 +1,5 @@
 // Base API URL from env.js
-const BASE = window.ENV.API_BASE_URL.replace("/trains", "");
-const API_URL = `${BASE}/staff`;
+const API_URL = "/api/staff";
 
 // Helper: safely parse JSON or return null
 async function safeJson(res) {

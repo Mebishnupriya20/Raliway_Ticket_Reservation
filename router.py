@@ -75,9 +75,9 @@ def handle_ui_routes(handler, path):
         return True
     
 
-     # Dynamic SPA routes (profiles pages)
-    # e.g. /profiles/1 should still load index.html and let the SPA router decide
-    if path.startswith("/profiles/"):
+     # Dynamic SPA routes (tickets pages)
+    # e.g. /tickets/1 should still load index.html and let the SPA router decide
+    if path.startswith("/tickets/"):
         serve_static(handler, "frontend/pages/index.html")
         return True
 
@@ -91,7 +91,7 @@ def _last_path_id_or_404(handler, path):
      Extract the last path segment and ensure it's a number.
     If it's not a number, return None after sending 404 (no crash).
     """
-     last = path.split("/")[-1]
+    last = path.split("/")[-1]
     if not last.isdigit():
         send_404(handler)
         return None

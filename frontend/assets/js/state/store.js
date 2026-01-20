@@ -1,7 +1,11 @@
 // Global app state
 let state = {
-  editingId: null,   // which student is being edited
-  trains: [],       // list of all trains
+   trains: [],
+  bookings: [],
+  staff: [],
+  reservations: [],
+  editingId: null,
+  editingBookingId: null,
 
 };
 

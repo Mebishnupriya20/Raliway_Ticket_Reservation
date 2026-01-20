@@ -1,4 +1,4 @@
-// frontend/assets/js/components/ProfileView.js
+// frontend/assets/js/components/ticketView.js
 import { $ } from "../utils/dom.js";
 
 function show(id, yes) {
@@ -12,7 +12,7 @@ function setText(id, value) {
   if (el) el.textContent = value ?? "";
 }
 
-export function setProfileLoading(isLoading) {
+export function setTicketLoading(isLoading) {
   // Basic
   show("basicLoading", isLoading);
   show("basicDetails", !isLoading);
@@ -65,7 +65,7 @@ export function renderReservationsTable(rows) {
   });
 }
 
-export function renderProfileError() {
-  setProfileLoading(false);
+export function renderTicketError() {
+  setTLoading(false);
   renderReservationCount(0);
 }
