@@ -19,28 +19,7 @@ body {
 /* --- Dynamic Backgrounds for each Page --- */
 
 /* Home: Railway Platform/Tracks */
-.page-home {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-    url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=2000');
-}
 
-/* Trains: High-speed Train Locomotive */
-.page-trains {
-    background-image: linear-gradient(rgba(240, 244, 248, 0.85), rgba(240, 244, 248, 0.85)), 
-    url('https://images.unsplash.com/photo-1532105956626-ce5c407b4966?q=80&w=2000');
-}
-
-/* Bookings: Travel Planning/Tickets */
-.page-bookings {
-    background-image: linear-gradient(rgba(240, 253, 244, 0.85), rgba(240, 253, 244, 0.85)), 
-    url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?q=80&w=2000');
-}
-
-/* Staff: Professional Team/Office Environment */
-.page-staff {
-    background-image: linear-gradient(rgba(245, 243, 255, 0.85), rgba(245, 243, 255, 0.85)), 
-    url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2000');
-}
 
 /* --- Dashboard Card Grid --- */
 .dashboard-grid {
