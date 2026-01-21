@@ -15,7 +15,7 @@ Why CSV can be downloaded directly 📄
 
 CSV export is pure data:
 
-id,name,email,year
+id,name,source,year
 1,Aarav Sharma,aarav@gmail.com,2025
 2,Priya Verma,priya@gmail.com,2024
 

@@ -21,8 +21,8 @@ def reservation_report():
                         
             b.id AS booking_id,
             b.passenger_name AS booking_passenger_name,
-            b.coach AS booking_coach_number,
-            b.booking AS booking_booking_date,            
+            b.coach_number AS booking_coach_number,
+            b.booking_date AS booking_booking_date,
             b.total_seats AS booking_total_seats,
             b.payment AS booking_payment,
                         
