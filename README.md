@@ -280,10 +280,12 @@ Backend supports:
 
 ### **🔗 Reservation APIs**
 
-| HTTP Method | Path                    | What it Does         |                 | ----------- | ----------------------- | -------------------- |
-| GET         | `/api/reservations`     | Get all reservations |
-| POST        | `/api/reservations`     | Create a reservation |
-| DELETE      | `/api/reservations/:id` | Delete a reservation |
+| HTTP Method | Path                    | What it Does                         |
+| ----------- | ----------------------- | -------------------------------------|
+| GET         | `/api/reservations`     | Get all reservations                 |
+| POST        | `/api/reservations`     | Create a reservation                 |
+| DELETE      | `/api/reservations/:id` | Delete a reservation                 |
+
 
 ### **🎟️ Ticket / Report APIs**
 
@@ -471,15 +473,15 @@ DELETE FROM reservations WHERE id = ?;
 
 ### **controllers**
 Controller files use database queries to perform:
-*Train management (add, update, delete)
-*Ticket booking and cancellation
-*Staff management
-*Reservation handling
+* Train management (add, update, delete)
+* Ticket booking and cancellation
+* Staff management
+* Reservation handling
 
 This clean separation ensures:
-*Controller → business logic
-*Service / Queries → database logic
-*Router → HTTP routing
+* Controller → business logic
+* Service / Queries → database logic
+* Router → HTTP routing
 
 
 ---
