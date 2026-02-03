@@ -13,36 +13,36 @@ This project helps you understand how real web apps work:
 
 ---
 
-## 🚀 ** What This Project Demonstrates **
+## 🚀 **What This Project Demonstrates**
 
 ### **Full Stack Basics**
 
-*How a backend serves data over REST APIs
-*How a frontend fetches that data and updates the UI
-*How routing works in both frontend and backend
-*How to organize files in a real-world project
+* How a backend serves data over **REST APIs**
+* How a frontend fetches that data and updates the UI
+* How routing works in both frontend and backend
+* How to organize files in a real-world project
 
 ### **Frontend Concepts**
 
-*Single Page Application (SPA) basics
-*Dynamic routing without page reload
-*Importing JavaScript modules
-*Using Tailwind CSS for styling
-*Using external CDNs (icons, fonts)
-*DOM manipulation: rendering tables and forms
-*Component-based UI structure
-*Managing UI state (edit mode, selected records)
+* Single Page Application (SPA) basics
+* Dynamic routing without page reload
+* Importing JavaScript modules
+* Using Tailwind CSS for styling
+* Using external CDNs (icons, fonts)
+* DOM manipulation: rendering tables and forms
+* Component-based UI structure
+* Managing UI state (edit mode, selected records)
 
 ### **Backend Concepts**
 
-*Python HTTP server using BaseHTTPRequestHandler
-*Manual routing (no Flask / Django)
-*Serving static files
-*REST API design
-*CRUD operations
-*JSON request & response handling
-*SQLite database integration
-*Error handling and 404 responses
+* Python HTTP server using `BaseHTTPRequestHandler`
+* Manual routing (no Flask / Django)
+* Serving static files
+* REST API design
+* CRUD operations
+* JSON request & response handling
+* SQLite database integration
+* Error handling and 404 responses
 
 ---
 
@@ -98,52 +98,52 @@ RAILWAY_TICKET_RESERVATION/
 ## 🔌 **How the App Works (Big Picture)**
 
 ### **1. User visits / (Dashboard)**
-*Browser loads index.html (SPA shell)
-*SPA router loads the dashboard into <main id="app">
-*User navigates without page reload
+* Browser loads `index.html` (SPA shell)
+* SPA router loads the dashboard into `<main id="app">`
+* User navigates without page reload
 
 ### **2. User opens a management page**
-*JavaScript controller initializes page logic
-*Fetches data from backend API
-*Renders tables and forms dynamically
+* JavaScript controller initializes page logic
+* Fetches data from backend API
+* Renders tables and forms dynamically
 
 ### **3. User submits a form**
-*Frontend collects form data
-*Sends request to backend API
-*Backend processes request and updates database
-*Frontend refreshes data without reloading page
+* Frontend collects form data
+* Sends request to backend API
+* Backend processes request and updates database
+* Frontend refreshes data without reloading page
 
-### **3. User submits a form**
-*Edit → loads record into form
-*Delete → sends DELETE request
-*Table updates instantly
+### **4. Edit / Delete actions**
+* Edit → loads record into form
+* Delete → sends DELETE request
+* Table updates instantly
 
 ---
 
 ## 🧱 **Frontend Key Files**
 
 ### **✔ `viewRouter.js`**
-*Controls SPA navigation
-*Updates URL without page reload
-*Loads correct page content dynamically
+* Controls SPA navigation
+* Updates URL without page reload
+* Loads correct page content dynamically
 
 ### **✔ `Frontend Controllers`**
-*Handle form submission
-*Fetch data from APIs
-*Control UI state
-*Refresh tables dynamically
+* Handle form submission
+* Fetch data from APIs
+* Control UI state
+* Refresh tables dynamically
 
 ### **✔ `Frontend Services`**
-*Contain all fetch() calls
-*Communicate with backend APIs
-*Safe JSON parsing to avoid crashes
+* Contain all fetch() calls
+* Communicate with backend APIs
+* Safe JSON parsing to avoid crashes
 
 ### **✔ `Components`**
-*`Header` – navigation bar
-*Dashboard cards
-*`Forms` – Add / Edit data
-*`Tables` – View records
-*`Alerts` – success & error messages
+* `Header` – navigation bar
+* Dashboard cards
+* `Forms` – Add / Edit data
+* `Tables` – View records
+* `Alerts` – success & error messages
 
 ---
 
@@ -160,16 +160,16 @@ RAILWAY_TICKET_RESERVATION/
 
 ### **✔ `controllers`**
 
-*Handle business logic
-*Validate data
-*Call service layer
-*Send JSON responses
+* Handle business logic
+* Validate data
+* Call service layer
+* Send JSON responses
 
 ### **✔ `Database Layer`**
 
-*SQLite database (railway.db)
-*SQL queries separated by feature
-*Clean connection handling
+* SQLite database (railway.db)
+* SQL queries separated by feature
+* Clean connection handling
 
 ### **📊 `Supported Operations (CRUD)`**
 
@@ -213,10 +213,10 @@ The backend is built using pure Python without frameworks.
 
 This helps in understanding:
 
-*How HTTP works internally
-*How routing is handled manually
-*How APIs process requests
-*How data flows between layers
+* How HTTP works internally
+* How routing is handled manually
+* How APIs process requests
+* How data flows between layers
 
 ---
 
